@@ -1,0 +1,31 @@
+---
+// The full home page for one language. Shared by /[lang]/ and the site root
+// (which renders the English home directly instead of redirecting).
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Products from './Products.astro';
+import Features from './Features.astro';
+import HowItWorks from './HowItWorks.astro';
+import CallToAction from './CallToAction.astro';
+import Footer from './Footer.astro';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const title = `BelloCloud | ${t('hero.title')}`;
+const description = t('meta.description');
+---
+
+<Base lang={lang} title={title} description={description}>
+  <Header lang={lang} />
+  <main transition:animate="fade">
+    <Hero lang={lang} />
+    <Products lang={lang} />
+    <Features lang={lang} />
+    <HowItWorks lang={lang} />
+    <CallToAction lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Base>

@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { basePath, useTranslations, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} title={`${t('signup.title')} | BelloCloud`} description={t('signup.subtitle')}>
+  <Header lang={lang} />
+  <main class="mesh-light">
+    <div class="mx-auto flex min-h-[70vh] max-w-6xl items-center justify-center px-5 py-16 sm:px-6">
+      <div class="reveal w-full max-w-md rounded-3xl border border-black/8 bg-white p-8 shadow-xl shadow-black/5 dark:border-white/10 dark:bg-night-card dark:shadow-black/40 sm:p-10">
+        <h1 class="font-heading text-2xl font-bold">{t('signup.title')}</h1>
+        <p class="mt-2 text-sm text-ink/60 dark:text-white/60">{t('signup.subtitle')}</p>
+
+        <!-- TODO: wire to the BelloCloud API auth endpoint -->
+        <form class="mt-8 flex flex-col gap-4" method="post" action="#">
+          <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-medium text-ink/80 dark:text-white/80">{t('signup.name')}</span>
+            <input type="text" name="name" required autocomplete="name" placeholder={t('signup.name.placeholder')}
+              class="rounded-xl border border-black/15 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-accent focus:ring-2 focus:ring-accent/20 dark:border-white/15 dark:bg-night dark:text-white dark:placeholder:text-white/35" />
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-medium text-ink/80 dark:text-white/80">{t('signup.email')}</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="you@company.com"
+              class="rounded-xl border border-black/15 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-accent focus:ring-2 focus:ring-accent/20 dark:border-white/15 dark:bg-night dark:text-white dark:placeholder:text-white/35" />
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-medium text-ink/80 dark:text-white/80">{t('signup.password')}</span>
+            <input type="password" name="password" required autocomplete="new-password" minlength="8" placeholder={t('signup.password.placeholder')}
+              class="rounded-xl border border-black/15 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-accent focus:ring-2 focus:ring-accent/20 dark:border-white/15 dark:bg-night dark:text-white dark:placeholder:text-white/35" />
+          </label>
+          <button type="submit" class="mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-accent/90">
+            {t('signup.submit')}
+          </button>
+        </form>
+
+        <p class="mt-6 text-center text-xs leading-relaxed text-ink/45 dark:text-white/45">
+          {t('signup.terms')}
+        </p>
+        <p class="mt-4 text-center text-sm text-ink/60 dark:text-white/60">
+          {t('signup.hasaccount')}
+          <a href={`${basePath}/${lang}/login/`} class="ms-1.5 font-semibold text-accent hover:underline">{t('signup.login')}</a>
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</Base>

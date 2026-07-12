@@ -1,0 +1,25 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Legal from '../../../components/Legal.astro';
+import { ui, type Lang } from '../../../lib/i18n';
+import { cookies, legalMeta } from '../../../lib/legal';
+
+export function getStaticPaths() {
+  return (Object.keys(ui) as Lang[]).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const doc = cookies[lang];
+const meta = legalMeta[lang];
+const title = `${doc.title} | BelloCloud`;
+---
+
+<Base lang={lang} title={title} description={doc.intro}>
+  <Header lang={lang} />
+  <main>
+    <Legal lang={lang} doc={doc} updatedLabel={meta.updatedLabel} updatedDate={meta.updatedDate} backLabel={meta.back} />
+  </main>
+  <Footer lang={lang} />
+</Base>

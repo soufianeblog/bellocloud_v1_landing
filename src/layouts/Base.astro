@@ -1,0 +1,194 @@
+---
+import '../styles/global.css';
+// Astro 7: <ClientRouter /> = View Transitions — smooth SPA-like page swaps.
+import { ClientRouter } from 'astro:transitions';
+import { getDir, basePath, useTranslations, type Lang } from '../lib/i18n';
+import CookieBanner from '../components/CookieBanner.astro';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+}
+
+const { lang, title, description } = Astro.props;
+const t = useTranslations(lang);
+const metaDescription = description || t('meta.description');
+const dir = getDir(lang);
+const site = Astro.site?.origin ?? 'https://bellocloud.com';
+// Canonical is the current page (with trailing slash). The site root serves
+// the English home, so its canonical points at /en/ to avoid duplicate content.
+const pagePath = Astro.url.pathname === '/' ? `${basePath}/en/` : Astro.url.pathname.replace(/\/?$/, '/');
+const canonical = new URL(pagePath, site).toString();
+// hreflang alternates for THIS page in each language (swap the lang segment).
+const altPath = (code: string) => pagePath.replace(/^(\/)([a-z]{2})(\/|$)/, `$1${code}$3`);
+const ogLocale: Record<Lang, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' };
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonical} />
+
+    <ClientRouter fallback="animate" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Fonts are self-hosted (see global.css @font-face): Inter everywhere;
+         Oswald headings on French pages; Tajawal body + Cairo headings on
+         Arabic pages. Preload what the first paint needs. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400-800-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/ttf" href="/fonts/BBHBartle-Regular.ttf" crossorigin />
+    {/* Oswald: fr headings + numeric stats (.font-stat) on every language */}
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/oswald-400-700-latin.woff2" crossorigin />
+    {lang === 'ar' && (
+      <>
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/tajawal-400-arabic.woff2" crossorigin />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/cairo-600-800-arabic.woff2" crossorigin />
+      </>
+    )}
+
+    <!-- No-flash theme init: apply saved/system theme before first paint.
+         Re-applied after every View Transition swap. -->
+    <script is:inline>
+      (function () {
+        function applyTheme() {
+          try {
+            var stored = localStorage.getItem('theme');
+            var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.classList.toggle('dark', dark);
+          } catch (e) {}
+        }
+        applyTheme();
+        document.addEventListener('astro:after-swap', applyTheme);
+
+        // Preserve scroll position across a language switch: same page, only
+        // the /<lang>/ path segment changes.
+        var savedScroll = null;
+        function stripLang(url) {
+          try { return new URL(url).pathname.replace(/^\/[a-z]{2}(\/|$)/, '/'); }
+          catch (e) { return String(url); }
+        }
+        document.addEventListener('astro:before-swap', function (e) {
+          savedScroll = stripLang(e.from) === stripLang(e.to) ? window.scrollY : null;
+        });
+        function restoreScroll() {
+          if (savedScroll == null) return;
+          window.scrollTo({ top: savedScroll, left: 0, behavior: 'instant' });
+        }
+        document.addEventListener('astro:after-swap', restoreScroll);
+        // Honor the URL hash on router navigations (the router swallows the
+        // native anchor jump, e.g. nav link → /en/#products).
+        function scrollToHash() {
+          if (location.hash.length < 2) return;
+          var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+          if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+        }
+        document.addEventListener('astro:page-load', function () {
+          if (savedScroll != null) {
+            restoreScroll();
+          } else if (location.hash.length > 1) {
+            scrollToHash();
+            if (document.fonts) document.fonts.ready.then(scrollToHash);
+          }
+          savedScroll = null;
+        });
+      })();
+    </script>
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BelloCloud" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0f1c" media="(prefers-color-scheme: dark)" />
+
+    <!-- Alternate language links (same page in each language) -->
+    <link rel="alternate" hreflang="en" href={new URL(altPath('en'), site).toString()} />
+    <link rel="alternate" hreflang="fr" href={new URL(altPath('fr'), site).toString()} />
+    <link rel="alternate" hreflang="ar" href={new URL(altPath('ar'), site).toString()} />
+    <link rel="alternate" hreflang="x-default" href={new URL(altPath('en'), site).toString()} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Structured data: organization + website -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': `${site}/#organization`,
+          name: 'BelloCloud',
+          url: `${site}/`,
+          logo: `${site}/bello-logo.svg`,
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${site}/#website`,
+          name: 'BelloCloud',
+          url: `${site}/`,
+          publisher: { '@id': `${site}/#organization` },
+          inLanguage: ['en', 'fr', 'ar'],
+        },
+      ],
+    })} />
+  </head>
+  <body class="min-h-screen bg-white text-ink antialiased transition-colors duration-300 dark:bg-night dark:text-white">
+    <slot />
+    <CookieBanner lang={lang} />
+
+    <script>
+      // Progressive scroll-reveal: reveal elements as they enter the viewport.
+      // Bound to astro:page-load so it re-initializes after every View
+      // Transition navigation (module scripts otherwise run only once).
+      function initReveal() {
+        const els = document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)');
+        if (!('IntersectionObserver' in window)) {
+          els.forEach((el) => el.classList.add('is-visible'));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+        );
+        els.forEach((el) => io.observe(el));
+      }
+      document.addEventListener('astro:page-load', initReveal);
+
+      // Re-bind theme toggle after every View Transition (module scripts
+      // otherwise only run once, so the toggle buttons lose their handlers).
+      function bindThemeToggle() {
+        document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((btn) => {
+          const clone = btn.cloneNode(true) as HTMLButtonElement;
+          btn.parentNode?.replaceChild(clone, btn);
+          clone.addEventListener('click', () => {
+            const dark = !document.documentElement.classList.contains('dark');
+            document.documentElement.classList.toggle('dark', dark);
+            try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+          });
+        });
+      }
+      bindThemeToggle();
+      document.addEventListener('astro:page-load', bindThemeToggle);
+    </script>
+  </body>
+</html>

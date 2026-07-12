@@ -1,0 +1,185 @@
+---
+import { localizePath, basePath, useTranslations, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Localized micro-labels for the decorative cloud-console mockup.
+const mockupText = {
+  en: {
+    nav: ['Overview', 'Apps', 'Deployments', 'Billing', 'Team', 'Settings'],
+    kpi: [
+      { label: 'Apps running', value: '3', delta: 'All healthy', tone: 'text-emerald-700 dark:text-emerald-400' },
+      { label: 'Uptime', value: '99.98%', delta: 'Last 30 days', tone: 'text-emerald-700 dark:text-emerald-400' },
+      { label: 'Monthly spend', value: '$49', delta: 'Subscription', tone: 'text-blue-700 dark:text-blue-400' },
+    ],
+    deployments: 'Deployments',
+    running: 'Running',
+    deploying: 'Deploying…',
+    deployingLine: 'Deploying bellocommerce-staging',
+  },
+  fr: {
+    nav: ['Aperçu', 'Apps', 'Déploiements', 'Facturation', 'Équipe', 'Réglages'],
+    kpi: [
+      { label: 'Apps actives', value: '3', delta: 'Tout va bien', tone: 'text-emerald-700 dark:text-emerald-400' },
+      { label: 'Disponibilité', value: '99,98%', delta: '30 derniers jours', tone: 'text-emerald-700 dark:text-emerald-400' },
+      { label: 'Coût mensuel', value: '49 $', delta: 'Abonnement', tone: 'text-blue-700 dark:text-blue-400' },
+    ],
+    deployments: 'Déploiements',
+    running: 'En ligne',
+    deploying: 'Déploiement…',
+    deployingLine: 'Déploiement de bellocommerce-staging',
+  },
+  ar: {
+    nav: ['نظرة عامة', 'التطبيقات', 'النشر', 'الفوترة', 'الفريق', 'الإعدادات'],
+    kpi: [
+      { label: 'تطبيقات تعمل', value: '3', delta: 'كلها سليمة', tone: 'text-emerald-700 dark:text-emerald-400' },
+      { label: 'التوفر', value: '99.98%', delta: 'آخر 30 يومًا', tone: 'text-emerald-700 dark:text-emerald-400' },
+      { label: 'التكلفة الشهرية', value: '$49', delta: 'اشتراك', tone: 'text-blue-700 dark:text-blue-400' },
+    ],
+    deployments: 'عمليات النشر',
+    running: 'يعمل',
+    deploying: 'جارٍ النشر…',
+    deployingLine: 'جارٍ نشر bellocommerce-staging',
+  },
+}[lang];
+
+const instances = [
+  { name: 'bellocommerce-prod', region: 'eu-west', status: mockupText.running, running: true },
+  { name: 'bellocommerce-staging', region: 'eu-west', status: mockupText.deploying, running: false },
+];
+---
+
+<section class="relative overflow-hidden bg-white dark:bg-night">
+  <!-- soft background wash -->
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute -top-32 start-1/2 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+    <div class="absolute bottom-0 end-0 h-80 w-80 rounded-full bg-cream blur-2xl dark:bg-night-soft"></div>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
+    <!-- Copy -->
+    <div class="reveal max-w-xl">
+      <h1 transition:name="hero-title" class="font-heading text-base font-bold leading-[1.1] sm:text-xl lg:text-[1.7rem]">
+        {t('hero.title')}
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-ink/65 dark:text-white/65">
+        {t('hero.subtitle')}
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={`${basePath}/${lang}/signup/`} class="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent/90">
+          {t('hero.cta')}
+          <svg class="h-4 w-4 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href={localizePath(lang, '#products')} class="inline-flex items-center justify-center gap-2 rounded-full border border-black/15 bg-white px-7 py-3.5 text-base font-semibold text-ink transition hover:border-black/30 dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:border-white/40">
+          {t('hero.secondary')}
+        </a>
+      </div>
+    </div>
+
+    <!-- Cloud console mockup -->
+    <div class="reveal" style="--reveal-delay: 120ms">
+      <div class="relative rounded-2xl border border-black/10 bg-white p-3 shadow-2xl shadow-black/10 dark:border-white/10 dark:bg-night-card dark:shadow-black/50">
+        <div class="rounded-xl bg-cream/60 p-3 dark:bg-night-soft/60">
+          <!-- window chrome -->
+          <div class="flex items-center gap-1.5 px-1 pb-3">
+            <span class="h-2.5 w-2.5 rounded-full bg-black/15 dark:bg-white/15"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-black/15 dark:bg-white/15"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-black/15 dark:bg-white/15"></span>
+          </div>
+
+          <div class="flex gap-3">
+            <!-- sidebar nav -->
+            <aside class="hidden w-28 shrink-0 flex-col gap-0.5 rounded-lg bg-white p-2 shadow-sm sm:flex dark:bg-night">
+              <div class="flex items-center gap-1.5 px-1 pb-2">
+                <span class="h-4 w-4 rounded bg-accent"></span>
+                <span class="h-2 w-12 rounded-full bg-ink/15 dark:bg-white/15"></span>
+              </div>
+              {mockupText.nav.map((item, i) => (
+                <span class={`flex items-center gap-2 rounded-md px-2 py-1.5 text-[0.575rem] font-medium ${i === 1 ? 'bg-accent-soft text-blue-700 dark:text-accent dark:bg-accent/10' : 'text-ink/60 dark:text-white/60'}`}>
+                  <span class={`h-1.5 w-1.5 rounded-full ${i === 1 ? 'bg-accent' : 'bg-ink/25 dark:bg-white/25'}`}></span>{item}
+                </span>
+              ))}
+            </aside>
+
+            <!-- main panel -->
+            <div class="min-w-0 flex-1">
+              <!-- KPI tiles -->
+              <div class="grid grid-cols-3 gap-2">
+                {mockupText.kpi.map((k) => (
+                  <div class="min-w-0 rounded-lg bg-white p-2.5 shadow-sm dark:bg-night">
+                    <p class="truncate text-[0.56rem] uppercase tracking-wide text-ink/60 dark:text-white/60">{k.label}</p>
+                    <p class="mt-1 truncate font-stat text-sm font-bold tabular-nums">{k.value}</p>
+                    <p class={`truncate text-[0.62rem] font-semibold ${k.tone}`}>{k.delta}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- app instances -->
+              <div class="mt-2 rounded-lg bg-white p-3 shadow-sm dark:bg-night">
+                <p class="text-[0.62rem] uppercase tracking-wide text-ink/60 dark:text-white/60">{mockupText.deployments}</p>
+                <div class="mt-2 flex flex-col gap-2">
+                  {instances.map((inst) => (
+                    <div class="flex items-center justify-between gap-2 rounded-md border border-black/5 px-2.5 py-2 dark:border-white/10">
+                      <div class="flex min-w-0 items-center gap-2">
+                        <span class="relative flex h-2 w-2 shrink-0">
+                          {inst.running
+                            ? <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                            : <>
+                                <span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-accent"></span>
+                                <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+                              </>}
+                        </span>
+                        <span class="truncate text-[0.7rem] font-semibold" dir="ltr">{inst.name}</span>
+                        <span class="hidden rounded bg-cream px-1.5 py-0.5 text-[0.6rem] font-medium text-ink/50 sm:block dark:bg-night-soft dark:text-white/50">{inst.region}</span>
+                      </div>
+                      <span class={`shrink-0 text-[0.62rem] font-semibold ${inst.running ? 'text-emerald-700 dark:text-emerald-400' : 'text-blue-700 dark:text-accent'}`}>{inst.status}</span>
+                    </div>
+                  ))}
+                  <!-- deploy progress -->
+                  <div class="deploy-progress rounded-md border border-black/5 px-2.5 py-2 dark:border-white/10">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[0.62rem] font-medium text-ink/50 dark:text-white/50">{mockupText.deployingLine}</span>
+                      <span class="deploy-pct font-stat text-[0.62rem] font-semibold tabular-nums text-accent" dir="ltr">0%</span>
+                    </div>
+                    <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-black/5 dark:bg-white/10">
+                      <div class="deploy-bar h-full w-2/3 rounded-full bg-accent"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Keep the percentage label in lockstep with the CSS-animated bar by
+  // sampling its rendered width every frame — fill, 100% hold, and loop
+  // restart all stay in sync without duplicating the animation timing.
+  function initDeployProgress() {
+    document.querySelectorAll<HTMLElement>('.deploy-progress:not([data-pct])').forEach((box) => {
+      box.dataset.pct = '1';
+      const bar = box.querySelector<HTMLElement>('.deploy-bar');
+      const label = box.querySelector<HTMLElement>('.deploy-pct');
+      const track = bar?.parentElement;
+      if (!bar || !label || !track) return;
+      const tick = () => {
+        if (!box.isConnected) return;
+        const total = track.getBoundingClientRect().width;
+        if (total > 0) {
+          const pct = Math.min(100, Math.round((bar.getBoundingClientRect().width / total) * 100));
+          label.textContent = `${pct}%`;
+        }
+        requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  }
+  initDeployProgress();
+  document.addEventListener('astro:page-load', initDeployProgress);
+</script>

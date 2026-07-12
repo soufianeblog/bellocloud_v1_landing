@@ -1,0 +1,78 @@
+---
+import { basePath, languages, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const entries = Object.entries(languages) as [Lang, string][];
+---
+
+<details class="lang-switcher relative">
+  <summary
+    class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 text-sm font-medium text-ink/80 transition hover:border-black/25 hover:text-ink dark:border-white/15 dark:text-white/80 dark:hover:border-white/35 dark:hover:text-white"
+    aria-label="Change language"
+  >
+    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9Z" />
+    </svg>
+    <span>{languages[lang]}</span>
+    <svg class="h-3.5 w-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <ul class="absolute end-0 mt-2 w-40 overflow-hidden rounded-xl border border-black/10 bg-white py-1 shadow-lg shadow-black/5 dark:border-white/15 dark:bg-night-card dark:shadow-black/40">
+    {entries.map(([code, label]) => (
+      <li>
+        <a
+          href={`${basePath}/${code}/`}
+          hreflang={code}
+          class:list={[
+            'flex items-center justify-between px-4 py-2 text-sm transition hover:bg-cream dark:hover:bg-white/5',
+            code === lang ? 'font-semibold text-ink dark:text-white' : 'text-ink/70 dark:text-white/70',
+          ]}
+        >
+          {label}
+          {code === lang && (
+            <svg class="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>
+          )}
+        </a>
+      </li>
+    ))}
+  </ul>
+</details>
+
+<script>
+  // Close the language dropdown on outside click.
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll<HTMLDetailsElement>('details.lang-switcher[open]').forEach((d) => {
+      if (!d.contains(e.target as Node)) d.open = false;
+    });
+  });
+
+  // Preserve the current page + section across a language switch: rewrite the
+  // clicked link so /en/#features → /fr/#features (and /en/privacy/ → /fr/privacy/)
+  // instead of always landing on the target homepage. Delegated on document so
+  // it keeps working after View Transition swaps; capture phase so the href is
+  // updated before Astro's ClientRouter reads it to start the navigation.
+  document.addEventListener(
+    'click',
+    (e) => {
+      const link = (e.target as Element).closest?.('details.lang-switcher a[hreflang]');
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const code = link.getAttribute('hreflang');
+      if (!code) return;
+      // Swap the /<lang>/ path segment for the target language, keep the rest + hash.
+      // The site root serves English without a language segment, so when the
+      // path has no /<lang>/ prefix, prepend one instead of swapping.
+      const langRe = /^\/(en|fr|ar)(?=\/|$)/;
+      const path = location.pathname;
+      link.href =
+        (langRe.test(path)
+          ? path.replace(langRe, `/${code}`)
+          : `/${code}${path === '/' ? '/' : path}`) + location.hash;
+    },
+    true
+  );
+</script>
+
+<style>
+  .lang-switcher summary::-webkit-details-marker { display: none; }
+</style>

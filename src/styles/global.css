@@ -1,0 +1,343 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: `dark:` utilities activate under `.dark` on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Below-fold sections skip rendering until they approach the viewport. */
+main > section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 48rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* BBHBartle — brand display font, used sparingly for headings         */
+/* ------------------------------------------------------------------ */
+@font-face {
+  font-family: 'BBHBartle';
+  src: url('/fonts/BBHBartle-Regular.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Self-hosted webfonts (subset woff2, no render-blocking third-party  */
+/* CSS): Inter body; Oswald (fr headings); Cairo + Tajawal (ar).       */
+/* ------------------------------------------------------------------ */
+/* inter latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(/fonts/inter-400-800-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* oswald latin-ext */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/oswald-400-700-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* oswald latin */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/oswald-400-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cairo arabic */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url(/fonts/cairo-600-800-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* cairo latin */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url(/fonts/cairo-600-800-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* tajawal arabic 400 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/tajawal-400-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* tajawal latin 400 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/tajawal-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* tajawal arabic 500 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/tajawal-500-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* tajawal latin 500 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/tajawal-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* tajawal arabic 700 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/tajawal-700-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* tajawal latin 700 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/tajawal-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* tajawal arabic 800 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/tajawal-800-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* tajawal latin 800 */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/tajawal-800-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ------------------------------------------------------------------ */
+/* Design tokens exposed to Tailwind (font-heading, text-accent, …)    */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-heading: 'BBHBartle', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+
+  --color-ink: #0a1220;
+  /* BelloCloud blue */
+  --color-accent: #0069ff;
+  --color-accent-soft: #e9f1ff;
+  --color-cream: #f4f7fc;
+
+  /* Dark surfaces — deep navy */
+  --color-night: #0a0f1c;
+  --color-night-card: #101828;
+  --color-night-soft: #172136;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark-mode base surface + default text. `.dark body` (specificity 0,1,1)
+   reliably beats equal-specificity utilities like `text-ink`. */
+.dark body {
+  background-color: var(--color-night);
+  color: #ffffff;
+}
+
+/* Arabic pages use Tajawal for body text. */
+html[lang="ar"] body {
+  font-family: 'Tajawal', var(--font-body);
+}
+
+/* BBHBartle is applied only via the explicit .font-heading class. */
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* BBHBartle lacks French accented glyphs (é è ê ç …) — French pages use
+   Oswald instead, a condensed bold sans close to BBHBartle in vibe. */
+html[lang="fr"] .font-heading:not(.font-brand) {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Arabic headings use Cairo (bold geometric Kufi style); body stays Tajawal. */
+html[lang="ar"] .font-heading:not(.font-brand) {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* .font-brand always keeps BBHBartle — used for the CLOUD wordmark
+   in the nav logo and footer, which must never change per language. */
+.font-brand {
+  font-family: 'BBHBartle', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Numeric stats/counters always use Oswald (the French heading font),
+   whatever the page language — digits read the same everywhere. */
+.font-stat {
+  font-family: 'Oswald', sans-serif !important;
+}
+
+/* Tajawal/Cairo glyphs sit slightly high inside flex-centered pill buttons.
+   Shift the label down ~2px by moving padding from bottom to top (height
+   unchanged). Only text pills — icon-only round buttons are excluded. */
+html[lang='ar'] :is(a, button).rounded-full:not(.theme-toggle) {
+  &.py-1\.5 { padding-top: calc(0.375rem + 2px); padding-bottom: calc(0.375rem - 2px); }
+  &.py-2    { padding-top: calc(0.5rem + 2px);   padding-bottom: calc(0.5rem - 2px); }
+  &.py-2\.5 { padding-top: calc(0.625rem + 2px); padding-bottom: calc(0.625rem - 2px); }
+  &.py-3    { padding-top: calc(0.75rem + 2px);  padding-bottom: calc(0.75rem - 2px); }
+  &.py-3\.5 { padding-top: calc(0.875rem + 2px); padding-bottom: calc(0.875rem - 2px); }
+  &.py-4    { padding-top: calc(1rem + 2px);     padding-bottom: calc(1rem - 2px); }
+}
+/* Same nudge for the pill-shaped language-switcher summary. */
+html[lang='ar'] summary.rounded-full.py-1\.5 {
+  padding-top: calc(0.375rem + 2px);
+  padding-bottom: calc(0.375rem - 2px);
+}
+/* Counter-shift icon siblings back onto the button's horizontal axis.
+   Includes the language-switcher summary's globe + chevron, which the
+   padding nudge above otherwise drags below center. */
+html[lang='ar'] :is(a, button).rounded-full:not(.theme-toggle) > svg,
+html[lang='ar'] summary.rounded-full > svg {
+  translate: 0 -2px;
+}
+
+/* Logo mark is black artwork; invert to white on dark surfaces. */
+.logo-invert { filter: invert(1) brightness(2); }
+
+/* Anchor offset so the sticky header doesn't cover section tops. */
+[id] { scroll-margin-top: 6rem; }
+
+/* ------------------------------------------------------------------ */
+/* Scroll-reveal animation (progressively enhanced via JS)             */
+/* ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Premium section backgrounds (mesh gradients)                        */
+/* ------------------------------------------------------------------ */
+.mesh-light {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(50rem 30rem at 12% -10%, rgba(0, 105, 255, 0.10), transparent 60%),
+    radial-gradient(46rem 30rem at 105% 15%, rgba(80, 150, 255, 0.08), transparent 55%),
+    radial-gradient(40rem 40rem at 50% 120%, rgba(0, 105, 255, 0.06), transparent 60%);
+}
+.dark .mesh-light {
+  background-color: var(--color-night);
+  background-image:
+    radial-gradient(50rem 30rem at 12% -10%, rgba(0, 105, 255, 0.16), transparent 60%),
+    radial-gradient(46rem 30rem at 105% 15%, rgba(80, 150, 255, 0.10), transparent 55%),
+    radial-gradient(40rem 40rem at 50% 120%, rgba(0, 105, 255, 0.08), transparent 60%);
+}
+
+/* Deep tech background for dark showcase sections. */
+.mesh-dark {
+  background-color: #070b14;
+  background-image:
+    radial-gradient(44rem 30rem at 8% 0%, rgba(0, 105, 255, 0.25), transparent 55%),
+    radial-gradient(40rem 32rem at 100% 100%, rgba(90, 200, 255, 0.12), transparent 55%),
+    linear-gradient(180deg, #070b14 0%, #0d1424 100%);
+}
+
+/* Faint grid overlay for tech sections. */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+}
+
+/* Animated glowing border on hover (border only, never the icon). */
+.glow-border {
+  position: relative;
+  transition: transform 0.35s var(--ease-out-expo), box-shadow 0.35s var(--ease-out-expo);
+}
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 105, 255, 0.6), rgba(120, 180, 255, 0.15) 40%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out-expo);
+}
+.glow-border:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px -12px rgba(0, 105, 255, 0.35);
+}
+.glow-border:hover::after { opacity: 1; }
+
+/* Deploy console: status dot pulse. */
+@keyframes pulse-ring { 0% { transform: scale(.9); opacity:.7 } 70%,100% { transform: scale(1.8); opacity:0 } }
+.pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+/* Deploy progress bar: fill to 100% (~3s), hold there ~4s, then the loop
+   restarts from 0 — a progress bar must never appear to unload. */
+@keyframes deploy-sweep { 0% { width: 0% } 43% { width: 100% } 100% { width: 100% } }
+.deploy-bar { animation: deploy-sweep 7s var(--ease-out-expo) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .pulse-ring, .deploy-bar { animation: none !important; }
+}

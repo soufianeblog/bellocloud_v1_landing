@@ -1,0 +1,42 @@
+---
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const features = [
+  { key: 'deploy', icon: 'M13 2 3 14h7l-1 8 10-12h-7l1-8Z' },
+  { key: 'managed', icon: 'M6.5 20a4.5 4.5 0 0 1-.4-8.98 6.5 6.5 0 0 1 12.5-1.77A5 5 0 0 1 18 20H6.5Z' },
+  { key: 'teams', icon: 'M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5Zm8 0c-.29 0-.62.02-1 .05 1.16.84 2 1.87 2 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5Z' },
+  { key: 'subs', icon: 'M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2Zm-9 6H5v-2h6v2Z' },
+  { key: 'pay', icon: 'M21 7.28V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2.28A2 2 0 0 0 22 15V9a2 2 0 0 0-1-1.72ZM20 9v6h-7V9h7Zm-4.5 4.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z' },
+  { key: 'control', icon: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm9.4 4a7.8 7.8 0 0 0-.1-1.2l2.1-1.7-2-3.5-2.6 1a7.6 7.6 0 0 0-2-1.2L16.4 3h-4l-.4 2.4a7.6 7.6 0 0 0-2 1.2l-2.6-1-2 3.5 2.1 1.7a7.9 7.9 0 0 0 0 2.4L5.4 15l2 3.5 2.6-1a7.6 7.6 0 0 0 2 1.2l.4 2.3h4l.4-2.3a7.6 7.6 0 0 0 2-1.2l2.6 1 2-3.5-2.1-1.7c.1-.4.1-.8.1-1.3Z' },
+];
+---
+
+<section id="features" class="bg-white py-24 dark:bg-night">
+  <div class="mx-auto max-w-6xl px-5 sm:px-6">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <h2 class="font-heading text-[clamp(1.25rem,6vw,1.875rem)] font-bold sm:text-4xl">{t('features.title')}</h2>
+      <p class="mt-4 text-lg text-ink/60 dark:text-white/60">{t('features.subtitle')}</p>
+    </div>
+
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f, i) => (
+        <article
+          class="reveal rounded-2xl border border-black/8 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-night-card"
+          style={`--reveal-delay:${(i % 3) * 90}ms`}
+        >
+          <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-accent-soft text-accent dark:bg-accent/15">
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d={f.icon} />
+            </svg>
+          </div>
+          <h3 class="mt-5 text-center text-lg font-bold">{t(`features.${f.key}`)}</h3>
+          <p class="mt-2 text-center text-sm leading-relaxed text-ink/60 dark:text-white/60">{t(`features.${f.key}.desc`)}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
