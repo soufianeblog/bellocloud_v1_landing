@@ -1,25 +1,12 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import Legal from '../../../components/Legal.astro';
+import LegalPage from '../../../components/LegalPage.astro';
 import { ui, type Lang } from '../../../lib/i18n';
-import { privacy, legalMeta } from '../../../lib/legal';
 
 export function getStaticPaths() {
   return (Object.keys(ui) as Lang[]).map((lang) => ({ params: { lang } }));
 }
 
 const { lang } = Astro.params as { lang: Lang };
-const doc = privacy[lang];
-const meta = legalMeta[lang];
-const title = `${doc.title} | BelloCloud`;
 ---
 
-<Base lang={lang} title={title} description={doc.intro}>
-  <Header lang={lang} />
-  <main>
-    <Legal lang={lang} doc={doc} updatedLabel={meta.updatedLabel} updatedDate={meta.updatedDate} backLabel={meta.back} />
-  </main>
-  <Footer lang={lang} />
-</Base>
+<LegalPage lang={lang} kind="privacy" />

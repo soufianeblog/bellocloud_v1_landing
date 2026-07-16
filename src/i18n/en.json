@@ -1,14 +1,11 @@
 {
   "meta.description": "Deploy your commerce apps in seconds. BelloCloud runs BelloCommerce and more on managed, subscription-based infrastructure.",
-
   "nav.login": "Log in",
   "nav.signup": "Sign up",
-
   "hero.title": "The Commerce Infrastructure",
   "hero.subtitle": "Deploy your commerce apps in seconds. Pick an app, choose a plan, and BelloCloud runs it for you: managed, secure, and always on.",
   "hero.cta": "Get started",
   "hero.secondary": "Explore products",
-
   "products.kicker": "Marketplace",
   "products.title": "One-click commerce apps",
   "products.subtitle": "Subscription-based apps, deployed and managed for you on BelloCloud.",
@@ -20,10 +17,10 @@
   "products.h3": "Multi-carrier shipping",
   "products.h4": "AI-powered automations",
   "products.deploy": "Deploy",
+  "products.coming_soon": "Coming soon",
   "products.learn": "Learn more",
   "products.soon.title": "More apps coming soon",
   "products.soon.desc": "The BelloCloud marketplace is growing. New subscription apps for your business are on the way.",
-
   "features.title": "Everything your apps need to run",
   "features.subtitle": "Infrastructure, billing, and team management, all handled for you.",
   "features.deploy": "Deploy in seconds",
@@ -38,7 +35,6 @@
   "features.pay.desc": "Pay with PayPal, top up your balance, and track every invoice from one billing page.",
   "features.control": "Full control",
   "features.control.desc": "Deploy, edit, or remove your apps whenever you want. Everything is a click away in your dashboard.",
-
   "how.title": "Live in three steps",
   "how.s1": "Create your account",
   "how.s1.desc": "Sign up in a minute, confirm your email, and set up your organization.",
@@ -46,18 +42,15 @@
   "how.s2.desc": "Choose BelloCommerce from the marketplace and the subscription that fits.",
   "how.s3": "Deploy & manage",
   "how.s3.desc": "Your app is live in seconds. Invite your team and manage everything from one dashboard.",
-
   "cta.title": "Deploy your first app today",
   "cta.subtitle": "Sign up, pick BelloCommerce, and go live in seconds.",
   "cta.button": "Get started free",
-
   "footer.tagline": "The commerce infrastructure. Deploy your commerce apps in seconds.",
   "footer.products": "Products",
   "footer.account": "Account",
   "footer.features": "Features",
   "footer.how": "How it works",
   "footer.copyright": "© 2026 BelloCloud. All rights reserved.",
-
   "login.title": "Welcome back",
   "login.subtitle": "Log in to manage your apps and subscriptions.",
   "login.email": "Email",
@@ -67,7 +60,6 @@
   "login.submit": "Log in",
   "login.noaccount": "Don't have an account?",
   "login.signup": "Sign up",
-
   "signup.title": "Create your account",
   "signup.subtitle": "Deploy your first commerce app in seconds.",
   "signup.name": "Full name",
@@ -79,7 +71,6 @@
   "signup.terms": "By signing up you agree to the BelloCloud terms of service.",
   "signup.hasaccount": "Already have an account?",
   "signup.login": "Log in",
-
   "nav.contact": "Contact",
   "contact.title": "Contact us",
   "contact.subtitle": "Questions, demos, partnerships. We reply fast.",
@@ -90,18 +81,15 @@
   "contact.meta.title": "Contact | BelloCloud",
   "contact.meta.description": "Contact the BelloCloud team: email us or send us a message straight to our WhatsApp inbox.",
   "wa.start": "Hello! I have a question about BelloCloud.",
-
   "footer.call": "Call us directly",
   "footer.whatsapp": "Message us on WhatsApp",
   "footer.legal": "Legal",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
   "footer.cookies": "Cookie Policy",
-
   "cookie.text": "We use cookies to improve your experience and analyze site traffic. You can accept or decline analytics cookies.",
   "cookie.accept": "Accept",
   "cookie.decline": "Decline",
-
   "404.title": "Page not found",
   "404.desc": "The page you're looking for doesn't exist or has been moved.",
   "404.back": "Back to home"

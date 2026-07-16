@@ -2,7 +2,7 @@
 import '../styles/global.css';
 // Astro 7: <ClientRouter /> = View Transitions — smooth SPA-like page swaps.
 import { ClientRouter } from 'astro:transitions';
-import { getDir, basePath, useTranslations, type Lang } from '../lib/i18n';
+import { getDir, basePath, defaultLang, ui, useTranslations, type Lang } from '../lib/i18n';
 import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
@@ -16,13 +16,32 @@ const t = useTranslations(lang);
 const metaDescription = description || t('meta.description');
 const dir = getDir(lang);
 const site = Astro.site?.origin ?? 'https://bellocloud.com';
-// Canonical is the current page (with trailing slash). The site root serves
-// the English home, so its canonical points at /en/ to avoid duplicate content.
-const pagePath = Astro.url.pathname === '/' ? `${basePath}/en/` : Astro.url.pathname.replace(/\/?$/, '/');
+// Canonical is the current page (with trailing slash). Language-less routes
+// (/, /contact/, /login/, …) serve the default language, so their canonical
+// points at the /<defaultLang>/… version to avoid duplicate content.
+const rawPath = Astro.url.pathname.replace(/\/?$/, '/');
+const langPrefix = new RegExp(`^${basePath}/(${Object.keys(ui).join('|')})/`);
+const pagePath = langPrefix.test(rawPath)
+  ? rawPath
+  : `${basePath}/${defaultLang}${rawPath.slice(basePath.length)}`;
 const canonical = new URL(pagePath, site).toString();
 // hreflang alternates for THIS page in each language (swap the lang segment).
 const altPath = (code: string) => pagePath.replace(/^(\/)([a-z]{2})(\/|$)/, `$1${code}$3`);
 const ogLocale: Record<Lang, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' };
+// Breadcrumb trail for subpages — structured data Google uses to understand
+// the page hierarchy and show the site's structure (sitelinks/breadcrumbs)
+// under search results. Home pages carry no trail.
+const crumbSegments = pagePath.replace(langPrefix, `${basePath}/`).split('/').filter(Boolean);
+const pageName = title.replace(/^BelloCloud \| /, '').replace(/ \| BelloCloud$/, '');
+const breadcrumb = crumbSegments.length
+  ? {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: new URL(`${basePath}/${lang}/`, site).toString() },
+        { '@type': 'ListItem', position: 2, name: pageName, item: canonical },
+      ],
+    }
+  : null;
 ---
 
 <!doctype html>
@@ -120,7 +139,7 @@ const ogLocale: Record<Lang, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' }
     <link rel="alternate" hreflang="en" href={new URL(altPath('en'), site).toString()} />
     <link rel="alternate" hreflang="fr" href={new URL(altPath('fr'), site).toString()} />
     <link rel="alternate" hreflang="ar" href={new URL(altPath('ar'), site).toString()} />
-    <link rel="alternate" hreflang="x-default" href={new URL(altPath('en'), site).toString()} />
+    <link rel="alternate" hreflang="x-default" href={new URL(altPath(defaultLang), site).toString()} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Structured data: organization + website -->
@@ -142,6 +161,7 @@ const ogLocale: Record<Lang, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' }
           publisher: { '@id': `${site}/#organization` },
           inLanguage: ['en', 'fr', 'ar'],
         },
+        ...(breadcrumb ? [breadcrumb] : []),
       ],
     })} />
   </head>

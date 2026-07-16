@@ -311,6 +311,9 @@ html[lang='ar'] summary.rounded-full > svg {
   content: '';
   position: absolute;
   inset: 0;
+  /* Overlay is decorative only — without this it swallows clicks on
+     everything inside the card (buttons, links). */
+  pointer-events: none;
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(135deg, rgba(0, 105, 255, 0.6), rgba(120, 180, 255, 0.15) 40%, transparent 70%);

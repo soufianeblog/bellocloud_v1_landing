@@ -1,0 +1,28 @@
+---
+// Shared legal-document page (terms / privacy / cookies) for one language.
+// Used by /[lang]/legal/* and the language-less /legal/* routes.
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import Legal from './Legal.astro';
+import type { Lang } from '../lib/i18n';
+import { terms, privacy, cookies, legalMeta } from '../lib/legal';
+
+interface Props {
+  lang: Lang;
+  kind: 'terms' | 'privacy' | 'cookies';
+}
+
+const { lang, kind } = Astro.props;
+const doc = { terms, privacy, cookies }[kind][lang];
+const meta = legalMeta[lang];
+const title = `BelloCloud | ${doc.title}`;
+---
+
+<Base lang={lang} title={title} description={doc.intro}>
+  <Header lang={lang} />
+  <main>
+    <Legal lang={lang} doc={doc} updatedLabel={meta.updatedLabel} updatedDate={meta.updatedDate} backLabel={meta.back} />
+  </main>
+  <Footer lang={lang} />
+</Base>

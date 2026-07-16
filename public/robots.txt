@@ -1,0 +1,5 @@
+# bellocloud.com — all crawlers welcome, including AI agents.
+User-agent: *
+Allow: /
+
+Sitemap: https://bellocloud.com/sitemap-index.xml
