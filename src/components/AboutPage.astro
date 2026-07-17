@@ -1,0 +1,54 @@
+---
+// The full About page for one language. Shared by /[lang]/about and the
+// language-less /about (which serves the default language directly).
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { basePath, useTranslations, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const title = `BelloCloud | ${t('about.title')}`;
+const description = t('about.p1');
+---
+
+<Base lang={lang} title={title} description={description}>
+  <Header lang={lang} />
+  <main>
+    <section class="bg-white py-24 dark:bg-night">
+      <div class="mx-auto max-w-3xl px-5 sm:px-6">
+        <div class="reveal">
+          <span class="text-sm font-semibold uppercase tracking-wider text-accent">{t('about.eyebrow')}</span>
+          <h1 class="font-heading mt-3 text-xl font-bold leading-tight sm:text-2xl">{t('about.title')}</h1>
+
+          <div class="mt-8 space-y-5 text-lg leading-relaxed text-ink/70 dark:text-white/70">
+            <p>{t('about.p1')}</p>
+            <p>{t('about.p2')}</p>
+            {/* "BelloCommerce" (literal in every language) links out to the product site. */}
+            <p class="font-semibold text-ink dark:text-white">
+              {t('about.p3').split('BelloCommerce').map((part, i) => (
+                <>
+                  {i > 0 && <a href={`https://bellocommerce.com/${lang}/`} target="_blank" rel="noopener" class="text-accent underline-offset-2 transition hover:underline">BelloCommerce</a>}
+                  {part}
+                </>
+              ))}
+            </p>
+          </div>
+
+          <a
+            href={`${basePath}/${lang}/`}
+            class="mt-10 inline-flex items-center gap-2 rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-ink transition hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40"
+          >
+            <svg class="h-4 w-4 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            {t('about.back')}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer lang={lang} />
+</Base>

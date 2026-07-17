@@ -21,6 +21,12 @@ const productLinks = [
   { href: `https://bellocommerce.com/${lang}/online-store/`, label: t('nav.products.store') },
   { href: `https://bellocommerce.com/${lang}/bellopos/`, label: t('nav.products.pos') },
 ];
+
+// Absolute (language-prefixed) hrefs so links work from any page, not just /.
+const navLinks = [
+  { href: `${basePath}/${lang}/about/`, label: t('nav.about') },
+  { href: `${basePath}/${lang}/contact/`, label: t('nav.contact') },
+];
 ---
 
 <header transition:name="site-header" transition:animate="fade" class="sticky top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-night/80">
@@ -32,8 +38,8 @@ const productLinks = [
       <span class="font-heading font-brand text-xl font-bold tracking-tight text-ink dark:text-white">CLOUD</span>
     </Logo>
 
-    <!-- Actions -->
-    <div class="hidden items-center gap-5 md:flex">
+    <!-- Desktop nav: products dropdown + page links, next to the logo -->
+    <div class="hidden items-center gap-8 md:flex">
       <!-- Products dropdown (hover/focus) -->
       <div class="group relative">
         <button type="button" class="flex items-center gap-1 py-5 text-sm font-medium text-ink/70 transition group-hover:text-ink group-focus-within:text-ink dark:text-white/70 dark:group-hover:text-white dark:group-focus-within:text-white" aria-haspopup="true">
@@ -46,6 +52,13 @@ const productLinks = [
           ))}
         </div>
       </div>
+      {navLinks.map((l) => (
+        <a href={l.href} class="text-sm font-medium text-ink/70 transition hover:text-ink dark:text-white/70 dark:hover:text-white">{l.label}</a>
+      ))}
+    </div>
+
+    <!-- Actions -->
+    <div class="hidden items-center gap-5 md:flex">
       <ThemeToggle />
       <LanguageSwitcher lang={lang} />
       <a href={`${basePath}/${lang}/login/`} class="text-sm font-medium text-ink/70 transition hover:text-ink dark:text-white/70 dark:hover:text-white">
@@ -71,6 +84,9 @@ const productLinks = [
             <p class="pt-3 text-xs font-semibold uppercase tracking-wider text-ink/40 dark:text-white/40">{t('nav.products')}</p>
             {productLinks.map((l) => (
               <a href={l.href} target="_blank" rel="noopener" class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{l.label}</a>
+            ))}
+            {navLinks.map((l) => (
+              <a href={l.href} class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{l.label}</a>
             ))}
             <a href={`${basePath}/${lang}/login/`} class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{t('nav.login')}</a>
             <a href={`${basePath}/${lang}/signup/`} class="mt-4 rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-white">{t('nav.signup')}</a>

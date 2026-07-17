@@ -55,7 +55,14 @@ const t = useTranslations(lang);
   document.addEventListener('click', (e) => {
     const btn = (e.target as Element).closest?.('[data-cookie-choice]');
     if (!(btn instanceof HTMLElement)) return;
-    try { localStorage.setItem('cookie-consent', btn.dataset.cookieChoice!); } catch {}
+    const choice = btn.dataset.cookieChoice!;
+    try { localStorage.setItem('cookie-consent', choice); } catch {}
     document.getElementById('cookie-banner')?.setAttribute('hidden', '');
+    // Honor the choice in PostHog immediately.
+    const ph = (window as any).posthog;
+    try {
+      if (choice === 'declined') ph?.opt_out_capturing?.();
+      else ph?.opt_in_capturing?.();
+    } catch {}
   });
 </script>
