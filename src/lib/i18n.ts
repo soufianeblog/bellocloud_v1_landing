@@ -15,7 +15,7 @@ export const ui = { en, fr, ar } as const;
 
 export type Lang = keyof typeof ui;
 
-/** Base path — empty for root domain deployment, set to /repo-name for GitHub Pages project sites. */
+/** Base path - empty for root domain deployment, set to /repo-name for GitHub Pages project sites. */
 export const basePath = '';
 
 /** Returns a translator `t(key)` for the given language, falling back to EN then the key itself. */

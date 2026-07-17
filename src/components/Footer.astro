@@ -1,5 +1,5 @@
 ---
-import { basePath, localizePath, useTranslations, type Lang } from '../lib/i18n';
+import { basePath, useTranslations, type Lang } from '../lib/i18n';
 import { waLink, WHATSAPP_NUMBER } from '../lib/wa';
 
 interface Props { lang: Lang; }
@@ -11,9 +11,9 @@ const columns = [
   {
     title: t('footer.products'),
     links: [
-      { label: 'BelloCommerce', href: 'https://bellocommerce.com', external: true },
-      { label: t('footer.features'), href: localizePath(lang, '#features') },
-      { label: t('footer.how'), href: localizePath(lang, '#how') },
+      { label: 'BelloCommerce', href: `https://bellocommerce.com/${lang}/`, external: true },
+      { label: t('nav.products.store'), href: `https://bellocommerce.com/${lang}/online-store/`, external: true },
+      { label: t('nav.products.pos'), href: `https://bellocommerce.com/${lang}/bellopos/`, external: true },
     ],
   },
   {

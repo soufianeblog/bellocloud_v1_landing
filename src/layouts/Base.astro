@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-// Astro 7: <ClientRouter /> = View Transitions — smooth SPA-like page swaps.
+// Astro 7: <ClientRouter /> = View Transitions - smooth SPA-like page swaps.
 import { ClientRouter } from 'astro:transitions';
 import { getDir, basePath, defaultLang, ui, useTranslations, type Lang } from '../lib/i18n';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -28,7 +28,7 @@ const canonical = new URL(pagePath, site).toString();
 // hreflang alternates for THIS page in each language (swap the lang segment).
 const altPath = (code: string) => pagePath.replace(/^(\/)([a-z]{2})(\/|$)/, `$1${code}$3`);
 const ogLocale: Record<Lang, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' };
-// Breadcrumb trail for subpages — structured data Google uses to understand
+// Breadcrumb trail for subpages - structured data Google uses to understand
 // the page hierarchy and show the site's structure (sitelinks/breadcrumbs)
 // under search results. Home pages carry no trail.
 const crumbSegments = pagePath.replace(langPrefix, `${basePath}/`).split('/').filter(Boolean);

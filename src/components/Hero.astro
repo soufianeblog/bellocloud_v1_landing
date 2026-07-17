@@ -159,7 +159,7 @@ const instances = [
 
 <script>
   // Keep the percentage label in lockstep with the CSS-animated bar by
-  // sampling its rendered width every frame — fill, 100% hold, and loop
+  // sampling its rendered width every frame - fill, 100% hold, and loop
   // restart all stay in sync without duplicating the animation timing.
   function initDeployProgress() {
     document.querySelectorAll<HTMLElement>('.deploy-progress:not([data-pct])').forEach((box) => {

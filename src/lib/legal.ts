@@ -28,7 +28,7 @@ export const privacy: Record<Lang, LegalDoc> = {
   en: {
     title: 'Privacy Policy',
     intro:
-      'This Privacy Policy explains how BelloCloud LLC ("BelloCloud", "we", "us") collects, uses, shares, and protects your personal information when you use the BelloCloud platform (the "Service"). BelloCloud LLC is registered in Morocco. By using the Service you agree to the practices described below.',
+      'This Privacy Policy explains how BelloCloud LLC ("BelloCloud", "we", "us") collects, uses, shares, and protects your personal information when you use the BelloCloud platform (the "Service"). By using the Service you agree to the practices described below.',
     sections: [
       {
         heading: 'Information We Collect',
@@ -85,13 +85,13 @@ export const privacy: Record<Lang, LegalDoc> = {
       {
         heading: 'International Transfers & Children',
         body: [
-          'We operate from Morocco and may process data in other countries where we or our providers operate; where required, we rely on appropriate safeguards for cross-border transfers. The Service is not directed to children under 16, and we do not knowingly collect their personal information.',
+          'We may process data in the countries where we or our providers operate; where required, we rely on appropriate safeguards for cross-border transfers. The Service is not directed to children under 16, and we do not knowingly collect their personal information.',
         ],
       },
       {
         heading: 'Changes & Contact',
         body: [
-          'We may update this Privacy Policy from time to time; material changes will be reflected by the "Last updated" date above. For any privacy question or to exercise your rights, contact BelloCloud LLC, Morocco, at privacy@bellocloud.com.',
+          'We may update this Privacy Policy from time to time; material changes will be reflected by the "Last updated" date above. For any privacy question or to exercise your rights, contact BelloCloud LLC at privacy@bellocloud.com.',
         ],
       },
     ],
@@ -99,7 +99,7 @@ export const privacy: Record<Lang, LegalDoc> = {
   fr: {
     title: 'Politique de confidentialité',
     intro:
-      'Cette Politique de confidentialité explique comment BelloCloud LLC (« BelloCloud », « nous ») collecte, utilise, partage et protège vos informations personnelles lorsque vous utilisez la plateforme BelloCloud (le « Service »). BelloCloud LLC est enregistrée au Maroc. En utilisant le Service, vous acceptez les pratiques décrites ci-dessous.',
+      'Cette Politique de confidentialité explique comment BelloCloud LLC (« BelloCloud », « nous ») collecte, utilise, partage et protège vos informations personnelles lorsque vous utilisez la plateforme BelloCloud (le « Service »). En utilisant le Service, vous acceptez les pratiques décrites ci-dessous.',
     sections: [
       {
         heading: 'Informations que nous collectons',
@@ -156,13 +156,13 @@ export const privacy: Record<Lang, LegalDoc> = {
       {
         heading: 'Transferts internationaux & mineurs',
         body: [
-          "Nous opérons depuis le Maroc et pouvons traiter des données dans d'autres pays où nous ou nos prestataires opérons ; lorsque c'est requis, nous nous appuyons sur des garanties appropriées pour les transferts transfrontaliers. Le Service ne s'adresse pas aux enfants de moins de 16 ans et nous ne collectons pas sciemment leurs informations personnelles.",
+          "Nous pouvons traiter des données dans les pays où nous ou nos prestataires opérons ; lorsque c'est requis, nous nous appuyons sur des garanties appropriées pour les transferts transfrontaliers. Le Service ne s'adresse pas aux enfants de moins de 16 ans et nous ne collectons pas sciemment leurs informations personnelles.",
         ],
       },
       {
         heading: 'Modifications & contact',
         body: [
-          "Nous pouvons mettre à jour cette Politique de confidentialité ; les changements importants seront reflétés par la date « Dernière mise à jour » ci-dessus. Pour toute question relative à la confidentialité ou pour exercer vos droits, contactez BelloCloud LLC, Maroc, à privacy@bellocloud.com.",
+          "Nous pouvons mettre à jour cette Politique de confidentialité ; les changements importants seront reflétés par la date « Dernière mise à jour » ci-dessus. Pour toute question relative à la confidentialité ou pour exercer vos droits, contactez BelloCloud LLC à privacy@bellocloud.com.",
         ],
       },
     ],
@@ -170,7 +170,7 @@ export const privacy: Record<Lang, LegalDoc> = {
   ar: {
     title: 'سياسة الخصوصية',
     intro:
-      'توضح سياسة الخصوصية هذه كيف تقوم شركة BelloCloud LLC («BelloCloud»، «نحن») بجمع معلوماتك الشخصية واستخدامها ومشاركتها وحمايتها عند استخدامك منصة BelloCloud («الخدمة»). شركة BelloCloud LLC مسجّلة في المغرب. باستخدامك الخدمة فإنك توافق على الممارسات الموضّحة أدناه.',
+      'توضح سياسة الخصوصية هذه كيف تقوم شركة BelloCloud LLC («BelloCloud»، «نحن») بجمع معلوماتك الشخصية واستخدامها ومشاركتها وحمايتها عند استخدامك منصة BelloCloud («الخدمة»). باستخدامك الخدمة فإنك توافق على الممارسات الموضّحة أدناه.',
     sections: [
       {
         heading: 'المعلومات التي نجمعها',
@@ -227,13 +227,13 @@ export const privacy: Record<Lang, LegalDoc> = {
       {
         heading: 'التحويلات الدولية والأطفال',
         body: [
-          'نعمل من المغرب وقد نعالج البيانات في بلدان أخرى نعمل فيها نحن أو مزوّدونا؛ وعند الاقتضاء نعتمد على ضمانات مناسبة للتحويلات عبر الحدود. الخدمة غير موجهة للأطفال دون 16 عامًا ولا نجمع معلوماتهم الشخصية عن قصد.',
+          'قد نعالج البيانات في البلدان التي نعمل فيها نحن أو مزوّدونا؛ وعند الاقتضاء نعتمد على ضمانات مناسبة للتحويلات عبر الحدود. الخدمة غير موجهة للأطفال دون 16 عامًا ولا نجمع معلوماتهم الشخصية عن قصد.',
         ],
       },
       {
         heading: 'التغييرات والتواصل',
         body: [
-          'قد نحدّث سياسة الخصوصية هذه من حين لآخر؛ وستنعكس التغييرات الجوهرية في تاريخ «آخر تحديث» أعلاه. لأي استفسار يتعلق بالخصوصية أو لممارسة حقوقك، تواصل مع BelloCloud LLC، المغرب، عبر privacy@bellocloud.com.',
+          'قد نحدّث سياسة الخصوصية هذه من حين لآخر؛ وستنعكس التغييرات الجوهرية في تاريخ «آخر تحديث» أعلاه. لأي استفسار يتعلق بالخصوصية أو لممارسة حقوقك، تواصل مع BelloCloud LLC عبر privacy@bellocloud.com.',
         ],
       },
     ],
@@ -247,7 +247,7 @@ export const terms: Record<Lang, LegalDoc> = {
   en: {
     title: 'Terms of Service',
     intro:
-      'These Terms of Service ("Terms") govern your access to and use of the BelloCloud platform (the "Service"), operated by BelloCloud LLC, a company registered in Morocco. Please read them carefully.',
+      'These Terms of Service ("Terms") govern your access to and use of the BelloCloud platform (the "Service"), operated by BelloCloud LLC. Please read them carefully.',
     sections: [
       {
         heading: 'The Service',
@@ -311,7 +311,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         heading: 'Governing Law & Changes',
         body: [
-          'These Terms are governed by the laws of Morocco. We may update these Terms; material changes will be announced on this page with an updated date. Continued use of the Service after changes means you accept them. For any question, contact BelloCloud LLC, Morocco, at legal@bellocloud.com.',
+          'These Terms are governed by the laws of the jurisdiction in which BelloCloud LLC is registered. We may update these Terms; material changes will be announced on this page with an updated date. Continued use of the Service after changes means you accept them. For any question, contact BelloCloud LLC at legal@bellocloud.com.',
         ],
       },
     ],
@@ -319,7 +319,7 @@ export const terms: Record<Lang, LegalDoc> = {
   fr: {
     title: "Conditions d'utilisation",
     intro:
-      "Ces Conditions d'utilisation (« Conditions ») régissent votre accès et votre utilisation de la plateforme BelloCloud (le « Service »), exploitée par BelloCloud LLC, société enregistrée au Maroc. Merci de les lire attentivement.",
+      "Ces Conditions d'utilisation (« Conditions ») régissent votre accès et votre utilisation de la plateforme BelloCloud (le « Service »), exploitée par BelloCloud LLC. Merci de les lire attentivement.",
     sections: [
       {
         heading: 'Le Service',
@@ -383,7 +383,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         heading: 'Droit applicable & modifications',
         body: [
-          "Ces Conditions sont régies par le droit marocain. Nous pouvons les mettre à jour ; les changements importants seront annoncés sur cette page avec une date actualisée. Continuer à utiliser le Service après un changement vaut acceptation. Pour toute question, contactez BelloCloud LLC, Maroc, à legal@bellocloud.com.",
+          "Ces Conditions sont régies par le droit de la juridiction où BelloCloud LLC est enregistrée. Nous pouvons les mettre à jour ; les changements importants seront annoncés sur cette page avec une date actualisée. Continuer à utiliser le Service après un changement vaut acceptation. Pour toute question, contactez BelloCloud LLC à legal@bellocloud.com.",
         ],
       },
     ],
@@ -391,7 +391,7 @@ export const terms: Record<Lang, LegalDoc> = {
   ar: {
     title: 'شروط الخدمة',
     intro:
-      'تحكم شروط الخدمة هذه («الشروط») وصولك إلى منصة BelloCloud («الخدمة») واستخدامك لها، وتديرها شركة BelloCloud LLC المسجّلة في المغرب. يرجى قراءتها بعناية.',
+      'تحكم شروط الخدمة هذه («الشروط») وصولك إلى منصة BelloCloud («الخدمة») واستخدامك لها، وتديرها شركة BelloCloud LLC. يرجى قراءتها بعناية.',
     sections: [
       {
         heading: 'الخدمة',
@@ -455,7 +455,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         heading: 'القانون المطبق والتغييرات',
         body: [
-          'تخضع هذه الشروط لقوانين المغرب. وقد نحدّثها من حين لآخر؛ وستُعلن التغييرات الجوهرية في هذه الصفحة مع تاريخ محدث. ويعني استمرارك في استخدام الخدمة بعد التغييرات قبولك لها. لأي استفسار، تواصل مع BelloCloud LLC، المغرب، عبر legal@bellocloud.com.',
+          'تخضع هذه الشروط لقوانين الولاية القضائية المسجّلة فيها شركة BelloCloud LLC. وقد نحدّثها من حين لآخر؛ وستُعلن التغييرات الجوهرية في هذه الصفحة مع تاريخ محدث. ويعني استمرارك في استخدام الخدمة بعد التغييرات قبولك لها. لأي استفسار، تواصل مع BelloCloud LLC عبر legal@bellocloud.com.',
         ],
       },
     ],
@@ -501,7 +501,7 @@ export const cookies: Record<Lang, LegalDoc> = {
       {
         heading: 'Changes & Contact',
         body: [
-          'We may update this Cookie Policy from time to time; material changes will be reflected by the "Last updated" date above. Questions? Contact BelloCloud LLC, Morocco, at privacy@bellocloud.com.',
+          'We may update this Cookie Policy from time to time; material changes will be reflected by the "Last updated" date above. Questions? Contact BelloCloud LLC at privacy@bellocloud.com.',
         ],
       },
     ],
@@ -541,7 +541,7 @@ export const cookies: Record<Lang, LegalDoc> = {
       {
         heading: 'Modifications & contact',
         body: [
-          'Nous pouvons mettre à jour cette Politique de cookies ; les changements importants seront reflétés par la date « Dernière mise à jour » ci-dessus. Des questions ? Contactez BelloCloud LLC, Maroc, à privacy@bellocloud.com.',
+          'Nous pouvons mettre à jour cette Politique de cookies ; les changements importants seront reflétés par la date « Dernière mise à jour » ci-dessus. Des questions ? Contactez BelloCloud LLC à privacy@bellocloud.com.',
         ],
       },
     ],
@@ -581,7 +581,7 @@ export const cookies: Record<Lang, LegalDoc> = {
       {
         heading: 'التغييرات والتواصل',
         body: [
-          'قد نحدّث هذه السياسة من حين لآخر؛ وستنعكس التغييرات الجوهرية في تاريخ «آخر تحديث» أعلاه. للاستفسار، تواصل مع BelloCloud LLC، المغرب، عبر privacy@bellocloud.com.',
+          'قد نحدّث هذه السياسة من حين لآخر؛ وستنعكس التغييرات الجوهرية في تاريخ «آخر تحديث» أعلاه. للاستفسار، تواصل مع BelloCloud LLC عبر privacy@bellocloud.com.',
         ],
       },
     ],

@@ -13,6 +13,14 @@ const t = useTranslations(lang);
 const strippedPath = Astro.url.pathname.replace(/\/$/, '');
 const isHome = strippedPath === `${basePath}/${lang}` || strippedPath === basePath;
 const Logo = isHome ? 'div' : 'a';
+
+// Products menu: external links into the BelloCommerce site, language-aware
+// (bellocommerce.com serves the same en/fr/ar languages).
+const productLinks = [
+  { href: `https://bellocommerce.com/${lang}/`, label: 'BelloCommerce' },
+  { href: `https://bellocommerce.com/${lang}/online-store/`, label: t('nav.products.store') },
+  { href: `https://bellocommerce.com/${lang}/bellopos/`, label: t('nav.products.pos') },
+];
 ---
 
 <header transition:name="site-header" transition:animate="fade" class="sticky top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-night/80">
@@ -26,6 +34,18 @@ const Logo = isHome ? 'div' : 'a';
 
     <!-- Actions -->
     <div class="hidden items-center gap-5 md:flex">
+      <!-- Products dropdown (hover/focus) -->
+      <div class="group relative">
+        <button type="button" class="flex items-center gap-1 py-5 text-sm font-medium text-ink/70 transition group-hover:text-ink group-focus-within:text-ink dark:text-white/70 dark:group-hover:text-white dark:group-focus-within:text-white" aria-haspopup="true">
+          {t('nav.products')}
+          <svg class="h-3.5 w-3.5 transition group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="invisible absolute start-0 top-full z-50 w-48 -translate-y-1 rounded-xl border border-black/5 bg-white p-1.5 opacity-0 shadow-xl shadow-black/10 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 dark:border-white/10 dark:bg-night-card dark:shadow-black/40">
+          {productLinks.map((l) => (
+            <a href={l.href} target="_blank" rel="noopener" class="block rounded-lg px-3.5 py-2.5 text-sm font-medium text-ink/75 transition hover:bg-cream hover:text-ink dark:text-white/75 dark:hover:bg-white/5 dark:hover:text-white">{l.label}</a>
+          ))}
+        </div>
+      </div>
       <ThemeToggle />
       <LanguageSwitcher lang={lang} />
       <a href={`${basePath}/${lang}/login/`} class="text-sm font-medium text-ink/70 transition hover:text-ink dark:text-white/70 dark:hover:text-white">
@@ -48,6 +68,10 @@ const Logo = isHome ? 'div' : 'a';
         </summary>
         <div class="absolute inset-x-0 top-16 border-b border-black/5 bg-white px-5 pb-6 pt-2 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-night dark:shadow-black/40">
           <div class="flex flex-col">
+            <p class="pt-3 text-xs font-semibold uppercase tracking-wider text-ink/40 dark:text-white/40">{t('nav.products')}</p>
+            {productLinks.map((l) => (
+              <a href={l.href} target="_blank" rel="noopener" class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{l.label}</a>
+            ))}
             <a href={`${basePath}/${lang}/login/`} class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{t('nav.login')}</a>
             <a href={`${basePath}/${lang}/signup/`} class="mt-4 rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-white">{t('nav.signup')}</a>
             <div class="mt-4"><LanguageSwitcher lang={lang} /></div>
