@@ -23,9 +23,12 @@ const productLinks = [
 ];
 
 // Absolute (language-prefixed) hrefs so links work from any page, not just /.
+// The blog lives on its own subdomain, so it's an absolute URL rather than a
+// language-prefixed route.
 const navLinks = [
-  { href: `${basePath}/${lang}/about/`, label: t('nav.about') },
-  { href: `${basePath}/${lang}/contact/`, label: t('nav.contact') },
+  { href: `${basePath}/${lang}/about/`, label: t('nav.about'), external: false },
+  { href: 'https://blog.bellocommerce.com', label: t('nav.blog'), external: true },
+  { href: `${basePath}/${lang}/contact/`, label: t('nav.contact'), external: false },
 ];
 ---
 
@@ -53,7 +56,7 @@ const navLinks = [
         </div>
       </div>
       {navLinks.map((l) => (
-        <a href={l.href} class="text-sm font-medium text-ink/70 transition hover:text-ink dark:text-white/70 dark:hover:text-white">{l.label}</a>
+        <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined} class="text-sm font-medium text-ink/70 transition hover:text-ink dark:text-white/70 dark:hover:text-white">{l.label}</a>
       ))}
     </div>
 
@@ -86,7 +89,7 @@ const navLinks = [
               <a href={l.href} target="_blank" rel="noopener" class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{l.label}</a>
             ))}
             {navLinks.map((l) => (
-              <a href={l.href} class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{l.label}</a>
+              <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined} class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{l.label}</a>
             ))}
             <a href={`${basePath}/${lang}/login/`} class="border-b border-black/5 py-3 text-base font-medium text-ink/80 dark:border-white/10 dark:text-white/80">{t('nav.login')}</a>
             <a href={`${basePath}/${lang}/signup/`} class="mt-4 rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-white">{t('nav.signup')}</a>

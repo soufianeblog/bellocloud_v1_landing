@@ -22,7 +22,7 @@ main > section:not(:first-of-type) {
 
 /* ------------------------------------------------------------------ */
 /* Self-hosted webfonts (subset woff2, no render-blocking third-party  */
-/* CSS): Inter body; Oswald (fr headings); Cairo + Tajawal (ar).       */
+/* CSS): Inter body; Oswald (Latin headings); Cairo + Tajawal (ar).   */
 /* ------------------------------------------------------------------ */
 /* inter latin */
 @font-face {
@@ -146,7 +146,12 @@ main > section:not(:first-of-type) {
 /* Design tokens exposed to Tailwind (font-heading, text-accent, …)    */
 /* ------------------------------------------------------------------ */
 @theme {
-  --font-heading: 'BBHBartle', ui-sans-serif, system-ui, sans-serif;
+  /* Headings resolve to Oswald (condensed display sans) for Latin scripts;
+     BBHBartle, the brand display face, is reserved for the CLOUD wordmark
+     alone (see .font-brand). Arabic headings override to Cairo. */
+  --font-heading: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+  /* System fallbacks AFTER Inter guarantee French accented glyphs (é è ê ë â ô û î ç)
+     render even if the Inter webfont is slow/blocked to load. */
   --font-body: 'Inter', 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
 
   --color-ink: #0a1220;
@@ -191,16 +196,14 @@ html[lang="ar"] body {
   font-family: 'Tajawal', var(--font-body);
 }
 
-/* BBHBartle is applied only via the explicit .font-heading class. */
+/* .font-heading marks every heading (section titles, pricing titles, CTA
+   titles, footer headers, hero). It resolves to Oswald for Latin scripts
+   (English & French) via --font-heading; Arabic swaps in Cairo below. The
+   BBHBartle display face is no longer used here - it is reserved for the
+   CLOUD wordmark alone (.font-brand). */
 .font-heading {
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
-}
-
-/* BBHBartle lacks French accented glyphs (é è ê ç …) - French pages use
-   Oswald instead, a condensed bold sans close to BBHBartle in vibe. */
-html[lang="fr"] .font-heading:not(.font-brand) {
-  font-family: 'Oswald', sans-serif;
 }
 
 /* Arabic headings use Cairo (bold geometric Kufi style); body stays Tajawal. */
@@ -214,7 +217,7 @@ html[lang="ar"] .font-heading:not(.font-brand) {
   font-family: 'BBHBartle', ui-sans-serif, system-ui, sans-serif !important;
 }
 
-/* Numeric stats/counters always use Oswald (the French heading font),
+/* Numeric stats/counters always use Oswald (the Latin heading font),
    whatever the page language - digits read the same everywhere. */
 .font-stat {
   font-family: 'Oswald', sans-serif !important;
