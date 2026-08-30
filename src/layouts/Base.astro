@@ -105,7 +105,7 @@ const breadcrumb = crumbSegments.length
         }
         document.addEventListener('astro:after-swap', restoreScroll);
         // Honor the URL hash on router navigations (the router swallows the
-        // native anchor jump, e.g. nav link → /en/#products).
+        // native anchor jump, e.g. nav link → /en/#features).
         function scrollToHash() {
           if (location.hash.length < 2) return;
           var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
