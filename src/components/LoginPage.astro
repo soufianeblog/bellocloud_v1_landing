@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
-import { basePath, useTranslations, type Lang } from '../lib/i18n';
+import { useTranslations, type Lang } from '../lib/i18n';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -41,10 +41,6 @@ const t = useTranslations(lang);
           </button>
         </form>
 
-        <p class="mt-6 text-center text-sm text-ink/60 dark:text-white/60">
-          {t('login.noaccount')}
-          <a href={`${basePath}/${lang}/signup/`} class="ms-1.5 font-semibold text-accent hover:underline">{t('login.signup')}</a>
-        </p>
       </div>
     </div>
   </main>

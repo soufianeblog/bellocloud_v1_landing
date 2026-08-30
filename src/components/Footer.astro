@@ -14,13 +14,13 @@ const columns = [
       { label: 'BelloCommerce', href: `https://bellocommerce.com/${lang}/`, external: true },
       { label: t('nav.products.store'), href: `https://bellocommerce.com/${lang}/online-store/`, external: true },
       { label: t('nav.products.pos'), href: `https://bellocommerce.com/${lang}/bellopos/`, external: true },
+      { label: 'BelloSend', href: 'https://bellosend.net/', external: true },
     ],
   },
   {
     title: t('footer.account'),
     links: [
       { label: t('nav.login'), href: `${basePath}/${lang}/login/` },
-      { label: t('nav.signup'), href: `${basePath}/${lang}/signup/` },
       { label: t('nav.about'), href: `${basePath}/${lang}/about/` },
       { label: t('nav.contact'), href: `${basePath}/${lang}/contact/` },
     ],
@@ -43,8 +43,11 @@ const columns = [
       <div class="max-w-xs">
         {/* dir="ltr" pins the lockup so the icon stays left of CLOUD in RTL too */}
         <a href={`${basePath}/${lang}/`} dir="ltr" class="inline-flex items-center gap-2.5" aria-label="BelloCloud home">
-          <img src="/bello-logo-blue.svg" alt="" width="28" height="28" class="h-7 w-7 shrink-0" />
-          <span class="font-heading font-brand text-xl font-bold tracking-tight text-ink dark:text-white">CLOUD</span>
+          <img src={`${basePath}/bello-logo.svg`} alt="" width="28" height="28" class="h-7 w-7 shrink-0 dark:invert" />
+          <span class="flex flex-col items-start text-ink dark:text-white">
+            <span class="font-heading text-[10px] font-normal leading-none tracking-[0.14em] opacity-75">BELLO</span>
+            <span class="font-heading mt-px text-xl font-bold leading-none tracking-[-0.02em]">CLOUD</span>
+          </span>
         </a>
         <p class="mt-4 text-sm leading-relaxed text-ink/60 dark:text-white/60">{t('footer.tagline')}</p>
 

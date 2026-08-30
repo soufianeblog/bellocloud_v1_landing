@@ -1,22 +1,25 @@
 ---
 import { basePath, languages, type Lang } from '../lib/i18n';
 
-interface Props { lang: Lang; }
-const { lang } = Astro.props;
+interface Props { lang: Lang; compact?: boolean; }
+const { lang, compact = false } = Astro.props;
 const entries = Object.entries(languages) as [Lang, string][];
 ---
 
 <details class="lang-switcher relative">
   <summary
-    class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 text-sm font-medium text-ink/80 transition hover:border-black/25 hover:text-ink dark:border-white/15 dark:text-white/80 dark:hover:border-white/35 dark:hover:text-white"
+    class:list={[
+      'flex cursor-pointer list-none items-center rounded-full border border-black/10 text-sm font-medium text-ink/80 transition hover:border-black/25 hover:text-ink dark:border-white/15 dark:text-white/80 dark:hover:border-white/35 dark:hover:text-white',
+      compact ? 'gap-1 px-2.5 py-1.5' : 'gap-1.5 px-3 py-1.5',
+    ]}
     aria-label="Change language"
   >
     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
       <circle cx="12" cy="12" r="9" />
       <path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9Z" />
     </svg>
-    <span>{languages[lang]}</span>
-    <svg class="h-3.5 w-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    <span>{compact ? lang.toUpperCase() : languages[lang]}</span>
+    {!compact && <svg class="h-3.5 w-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>}
   </summary>
   <ul class="absolute end-0 mt-2 w-40 overflow-hidden rounded-xl border border-black/10 bg-white py-1 shadow-lg shadow-black/5 dark:border-white/15 dark:bg-night-card dark:shadow-black/40">
     {entries.map(([code, label]) => (
