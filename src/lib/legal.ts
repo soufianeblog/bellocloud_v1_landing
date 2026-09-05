@@ -71,6 +71,14 @@ export const privacy: Record<Lang, LegalDoc> = {
         ],
       },
       {
+        heading: 'Meta platform integrations',
+        body: [
+          'Some BelloCloud products connect to Meta platforms on a customer’s instruction — today the WhatsApp Business Platform and Instagram messaging, through BelloSend (bellosend.net). We access these platforms only for the business that authorised us, and only for the assets that business selected while connecting.',
+          'From those platforms we receive what the business needs in order to answer its own customers: the identifiers of the connected number or Instagram professional account, the customer’s platform-scoped identifier, username or phone number, profile name and picture where the platform provides one, message content and media, and comments and mentions on the business’s own posts. We use this data to deliver the messaging features the business asked for. We do not sell it, do not use it for advertising, and do not use it to build profiles unrelated to the business’s own conversations.',
+          'A business ends our access by removing the channel in the product or by revoking BelloCloud in Meta Business settings or in Instagram’s connected-apps settings; access stops immediately and the data is deleted on the schedule in this policy. Deletion can also be requested at contact@bellocloud.io, and the product-level policy at bellosend.net/privacy describes the same handling in more detail.',
+        ],
+      },
+      {
         heading: 'Data Retention',
         body: [
           'We retain personal information for as long as your account is active or as needed to provide the Service. We may retain certain information as required to comply with legal obligations, resolve disputes, and enforce our agreements. When no longer needed, data is deleted or anonymized. Data belonging to apps you deploy is removed when you delete those apps or your account, subject to a short backup window.',
@@ -142,6 +150,14 @@ export const privacy: Record<Lang, LegalDoc> = {
         ],
       },
       {
+        heading: 'Intégrations aux plateformes Meta',
+        body: [
+          'Certains produits BelloCloud se connectent aux plateformes de Meta sur instruction du client — aujourd’hui la plateforme WhatsApp Business et la messagerie Instagram, via BelloSend (bellosend.net). Nous n’accédons à ces plateformes que pour l’entreprise qui nous y a autorisés, et uniquement pour les actifs qu’elle a sélectionnés lors de la connexion.',
+          'Nous en recevons ce dont l’entreprise a besoin pour répondre à ses propres clients : les identifiants du numéro ou du compte professionnel Instagram connecté, l’identifiant propre à la plateforme du client, son nom d’utilisateur ou son numéro, son nom et sa photo de profil lorsque la plateforme les fournit, le contenu des messages et les médias, ainsi que les commentaires et mentions sur les publications de l’entreprise. Ces données servent aux fonctions de messagerie demandées. Nous ne les vendons pas, ne les utilisons pas à des fins publicitaires et ne construisons pas de profils étrangers aux conversations de l’entreprise.',
+          'L’entreprise met fin à notre accès en retirant le canal dans le produit ou en révoquant BelloCloud dans les paramètres Meta Business ou dans les applications connectées d’Instagram ; l’accès cesse immédiatement et les données sont supprimées selon le calendrier de cette politique. Une suppression peut aussi être demandée à contact@bellocloud.io, et la politique du produit sur bellosend.net/privacy décrit le même traitement plus en détail.',
+        ],
+      },
+      {
         heading: 'Conservation des données',
         body: [
           "Nous conservons vos informations personnelles tant que votre compte est actif ou tant que nécessaire pour fournir le Service. Certaines informations peuvent être conservées pour respecter nos obligations légales, résoudre des litiges et faire appliquer nos accords. Lorsqu'elles ne sont plus nécessaires, les données sont supprimées ou anonymisées. Les données des applications que vous déployez sont supprimées lorsque vous supprimez ces applications ou votre compte, sous réserve d'une courte fenêtre de sauvegarde.",
@@ -210,6 +226,14 @@ export const privacy: Record<Lang, LegalDoc> = {
           'السلطات أو أطراف ثالثة عندما يقتضي القانون ذلك أو لحماية حقوقنا ومستخدمينا.',
           'كيان خلف في إطار اندماج أو استحواذ أو بيع أصول.',
           'أطراف أخرى عندما تمنحنا موافقتك على ذلك.',
+        ],
+      },
+      {
+        heading: 'التكامل مع منصات Meta',
+        body: [
+          'تتصل بعض منتجات BelloCloud بمنصات Meta بتوجيه من العميل — واليوم منصة واتساب للأعمال ومراسلات إنستغرام عبر BelloSend (bellosend.net). لا نصل إلى هذه المنصات إلا لحساب النشاط التجاري الذي منحنا الإذن، وللأصول التي اختارها عند الربط فقط.',
+          'ونتلقى منها ما يحتاجه النشاط للرد على عملائه: معرّفات الرقم أو حساب إنستغرام المهني المتصل، ومعرّف العميل الخاص بالمنصة أو اسم المستخدم أو الرقم، والاسم وصورة الملف حين توفرهما المنصة، ومحتوى الرسائل والوسائط، والتعليقات والإشارات على منشورات النشاط نفسه. نستخدم هذه البيانات لتشغيل ميزات المراسلة المطلوبة. لا نبيعها ولا نستخدمها للإعلانات ولا لبناء ملفات لا صلة لها بمحادثات النشاط.',
+          'ينهي النشاط وصولنا بإزالة القناة داخل المنتج أو بسحب الإذن من إعدادات Meta Business أو من التطبيقات المرتبطة في إنستغرام؛ فيتوقف الوصول فوراً وتُحذف البيانات وفق المدد الواردة في هذه السياسة. ويمكن أيضاً طلب الحذف على contact@bellocloud.io، وتشرح سياسة المنتج على bellosend.net/privacy المعالجة نفسها بتفصيل أوسع.',
         ],
       },
       {
