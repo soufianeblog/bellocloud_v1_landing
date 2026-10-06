@@ -690,7 +690,7 @@ export const refund: Record<Lang, LegalDoc> = {
           'BelloSend est un CRM WhatsApp et Instagram vendu par abonnement mensuel ou annuel.',
           'Votre premier paiement bénéficie d’une garantie satisfait ou remboursé de 14 jours : faites la demande dans les 14 jours et nous le remboursons intégralement. Les renouvellements suivants ne sont pas remboursés, mais vous pouvez annuler à tout moment : l’abonnement s’arrête simplement à la fin de la période déjà payée.',
         ],
-        links: [{ label: 'Politique de remboursement BelloSend', href: 'https://bellosend.net/en/refund' }],
+        links: [{ label: 'Politique de remboursement BelloSend', href: 'https://bellosend.net/fr/refund' }],
       },
       {
         heading: 'BelloCommerce et la plateforme BelloCloud',
@@ -740,7 +740,7 @@ export const refund: Record<Lang, LegalDoc> = {
           'BelloSend نظام CRM لواتساب وإنستغرام يُباع باشتراك شهري أو سنوي.',
           'تتمتع دفعتك الأولى بضمان استرداد المال خلال 14 يومًا: اطلب ذلك خلال 14 يومًا وسنردها كاملة. لا تُسترد التجديدات اللاحقة، لكن يمكنك الإلغاء في أي وقت فيتوقف الاشتراك ببساطة في نهاية الفترة المدفوعة.',
         ],
-        links: [{ label: 'سياسة الاسترداد لـ BelloSend', href: 'https://bellosend.net/en/refund' }],
+        links: [{ label: 'سياسة الاسترداد لـ BelloSend', href: 'https://bellosend.net/ar/refund' }],
       },
       {
         heading: 'BelloCommerce ومنصة BelloCloud',
