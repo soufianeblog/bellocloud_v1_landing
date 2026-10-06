@@ -1,0 +1,9 @@
+---
+// Language-less route: serves the default-language page directly (no redirect
+// flash). The canonical URL (set by Base) points at the /{defaultLang}/
+// version, so search engines treat this as the same page.
+import LegalPage from '../../components/LegalPage.astro';
+import { defaultLang } from '../../lib/i18n';
+---
+
+<LegalPage lang={defaultLang} kind="refund" />

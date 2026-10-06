@@ -1,0 +1,37 @@
+---
+// Legal identity card: company name, registration, address, email, phone.
+// Shown on the contact page and at the end of every legal document.
+import { useTranslations, type Lang } from '../lib/i18n';
+import { COMPANY, addressLines } from '../lib/company';
+
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+
+const { lang, class: className = '' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class={`rounded-2xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-night-card ${className}`}>
+  <h2 class="font-heading text-lg font-bold text-ink dark:text-white">{t('company.title')}</h2>
+  <p class="mt-1 text-sm text-ink/60 dark:text-white/60">
+    <span dir="ltr" class="font-semibold text-ink dark:text-white">{COMPANY.legalName}</span> · {t('company.registered')}
+  </p>
+  <dl class="mt-5 grid gap-5 sm:grid-cols-[1.5fr_1fr_1fr]">
+    <div>
+      <dt class="text-sm font-semibold text-ink/60 dark:text-white/60">{t('company.address')}</dt>
+      <dd dir="ltr" class="mt-1 text-sm leading-relaxed text-ink dark:text-white rtl:text-right">
+        <address class="not-italic">{COMPANY.legalName}<br />{addressLines.map((l) => (<><span class="whitespace-nowrap">{l}</span><br /></>))}</address>
+      </dd>
+    </div>
+    <div>
+      <dt class="text-sm font-semibold text-ink/60 dark:text-white/60">{t('company.email')}</dt>
+      <dd dir="ltr" class="mt-1 text-sm rtl:text-right"><a href={`mailto:${COMPANY.email}`} class="text-accent underline-offset-2 hover:underline">{COMPANY.email}</a></dd>
+    </div>
+    <div>
+      <dt class="text-sm font-semibold text-ink/60 dark:text-white/60">{t('company.phone')}</dt>
+      <dd dir="ltr" class="mt-1 text-sm rtl:text-right"><a href={`tel:${COMPANY.phoneE164}`} class="text-accent underline-offset-2 hover:underline">{COMPANY.phoneDisplay}</a></dd>
+    </div>
+  </dl>
+</div>

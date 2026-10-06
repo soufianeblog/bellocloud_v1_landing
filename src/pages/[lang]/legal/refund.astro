@@ -1,0 +1,12 @@
+---
+import LegalPage from '../../../components/LegalPage.astro';
+import { ui, type Lang } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  return (Object.keys(ui) as Lang[]).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+---
+
+<LegalPage lang={lang} kind="refund" />

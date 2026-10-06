@@ -5,6 +5,7 @@ import { ClientRouter } from 'astro:transitions';
 import { getDir, basePath, defaultLang, ui, useTranslations, type Lang } from '../lib/i18n';
 import CookieBanner from '../components/CookieBanner.astro';
 import PostHog from '../components/posthog.astro';
+import { COMPANY } from '../lib/company';
 
 interface Props {
   lang: Lang;
@@ -151,8 +152,31 @@ const breadcrumb = crumbSegments.length
           '@type': 'Organization',
           '@id': `${site}/#organization`,
           name: 'BelloCloud',
+          legalName: COMPANY.legalName,
           url: `${site}/`,
           logo: `${site}/bello-logo.svg`,
+          email: COMPANY.email,
+          telephone: COMPANY.phoneE164,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: COMPANY.street,
+            addressLocality: COMPANY.city,
+            addressRegion: COMPANY.region,
+            postalCode: COMPANY.postalCode,
+            addressCountry: COMPANY.countryCode,
+          },
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'customer support',
+            email: COMPANY.email,
+            telephone: COMPANY.phoneE164,
+            availableLanguage: ['English', 'French', 'Arabic'],
+          },
+          brand: [
+            { '@type': 'Brand', name: 'BelloPOS', url: 'https://bellopos.app/' },
+            { '@type': 'Brand', name: 'BelloSend', url: 'https://bellosend.net/' },
+            { '@type': 'Brand', name: 'BelloCommerce', url: 'https://bellocommerce.com/' },
+          ],
         },
         {
           '@type': 'WebSite',
