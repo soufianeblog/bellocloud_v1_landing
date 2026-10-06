@@ -296,7 +296,7 @@ export const terms: Record<Lang, LegalDoc> = {
           'Apps are offered on subscription plans billed as described at checkout.',
           'Payments are processed by PayPal or other listed processors; you may also top up an account balance.',
           'Subscriptions renew automatically unless cancelled before the renewal date from your dashboard.',
-          'Refunds and cancellations follow our Refund & Cancellation Policy: BelloPOS licences and the first BelloSend payment carry a 14-day money-back guarantee; other payments are non-refundable once a billing period has started, except where required by law.',
+          'Refunds and cancellations follow our Refund & Cancellation Policy: BelloPOS licences and the first payment of a new BelloSend or BelloCommerce subscription carry a 14-day money-back guarantee; renewals and other payments are non-refundable, except where required by law or where we failed to deliver the service.',
           'We may change prices with prior notice; changes apply from the next billing cycle.',
         ],
         links: [{ label: 'Refund & Cancellation Policy', href: '/en/legal/refund/' }],
@@ -369,7 +369,7 @@ export const terms: Record<Lang, LegalDoc> = {
           'Les applications sont proposées par abonnement, facturé comme indiqué lors de la commande.',
           'Les paiements sont traités par PayPal ou d’autres prestataires listés ; vous pouvez aussi recharger un solde de compte.',
           'Les abonnements se renouvellent automatiquement sauf annulation avant la date de renouvellement depuis votre tableau de bord.',
-          'Les remboursements et annulations suivent notre Politique de remboursement et d’annulation : les licences BelloPOS et le premier paiement BelloSend bénéficient d’une garantie satisfait ou remboursé de 14 jours ; les autres paiements ne sont pas remboursables une fois la période de facturation entamée, sauf obligation légale.',
+          'Les remboursements et annulations suivent notre Politique de remboursement et d’annulation : les licences BelloPOS et le premier paiement d’un nouvel abonnement BelloSend ou BelloCommerce bénéficient d’une garantie satisfait ou remboursé de 14 jours ; les renouvellements et autres paiements ne sont pas remboursables, sauf obligation légale ou si nous n’avons pas fourni le service.',
           'Nous pouvons modifier les prix avec préavis ; les changements s’appliquent au cycle de facturation suivant.',
         ],
         links: [{ label: 'Politique de remboursement et d’annulation', href: '/fr/legal/refund/' }],
@@ -442,7 +442,7 @@ export const terms: Record<Lang, LegalDoc> = {
           'تُقدَّم التطبيقات بخطط اشتراك تُفوتر كما هو موضح عند الشراء.',
           'تُعالَج المدفوعات عبر PayPal أو مزوّدين آخرين معلنين؛ ويمكنك أيضًا شحن رصيد حسابك.',
           'تتجدد الاشتراكات تلقائيًا ما لم تُلغِها قبل تاريخ التجديد من لوحة التحكم.',
-          'تخضع المبالغ المستردة والإلغاءات لسياسة الاسترداد والإلغاء لدينا: تتمتع تراخيص BelloPOS والدفعة الأولى من BelloSend بضمان استرداد المال خلال 14 يومًا؛ أما المدفوعات الأخرى فلا تُسترد بعد بدء فترة الفوترة، باستثناء ما يقتضيه القانون.',
+          'تخضع المبالغ المستردة والإلغاءات لسياسة الاسترداد والإلغاء لدينا: تتمتع تراخيص BelloPOS والدفعة الأولى من أي اشتراك جديد في BelloSend أو BelloCommerce بضمان استرداد المال خلال 14 يومًا؛ أما التجديدات والمدفوعات الأخرى فلا تُسترد، إلا إذا اقتضى القانون ذلك أو إذا لم نقدّم الخدمة.',
           'قد نغيّر الأسعار بإشعار مسبق؛ وتسري التغييرات اعتبارًا من دورة الفوترة التالية.',
         ],
         links: [{ label: 'سياسة الاسترداد والإلغاء', href: '/ar/legal/refund/' }],
@@ -645,9 +645,10 @@ export const refund: Record<Lang, LegalDoc> = {
       {
         heading: 'BelloCommerce and the BelloCloud platform',
         body: [
-          'BelloCommerce online stores run on BelloCloud subscriptions. You can cancel a subscription at any time from your dashboard; it stays active until the end of the period already paid and does not renew.',
-          'Payments for a billing period that has already started are not refunded, except where required by law or where we failed to deliver the Service.',
+          'BelloCommerce online stores run on BelloCloud subscriptions. You can cancel a subscription at any time from your dashboard: you are not charged again, and it stays active until the end of the period already paid.',
+          'The first payment of a new subscription carries a 14-day money-back guarantee: ask within 14 days and we refund it in full, with no reason needed. Renewals are not refunded, except where the law requires it or where we failed to deliver the Service, in which case we credit or refund the affected part. Fees charged by third parties, such as shipping companies, Meta for WhatsApp messages or payment processors, are not refundable by us.',
         ],
+        links: [{ label: 'BelloCommerce Refund & Cancellation Policy', href: 'https://bellocommerce.com/en/legal/refund/' }],
       },
       {
         heading: 'How to request a refund or cancel',
@@ -695,9 +696,10 @@ export const refund: Record<Lang, LegalDoc> = {
       {
         heading: 'BelloCommerce et la plateforme BelloCloud',
         body: [
-          'Les boutiques en ligne BelloCommerce fonctionnent avec des abonnements BelloCloud. Vous pouvez annuler un abonnement à tout moment depuis votre tableau de bord ; il reste actif jusqu’à la fin de la période déjà payée et ne se renouvelle pas.',
-          'Les paiements d’une période de facturation déjà entamée ne sont pas remboursés, sauf obligation légale ou si nous n’avons pas fourni le Service.',
+          'Les boutiques en ligne BelloCommerce fonctionnent avec des abonnements BelloCloud. Vous pouvez annuler un abonnement à tout moment depuis votre tableau de bord : vous n’êtes plus prélevé, et il reste actif jusqu’à la fin de la période déjà payée.',
+          'Le premier paiement d’un nouvel abonnement bénéficie d’une garantie satisfait ou remboursé de 14 jours : faites la demande dans les 14 jours et nous le remboursons intégralement, sans justification. Les renouvellements ne sont pas remboursés, sauf obligation légale ou si nous n’avons pas fourni le Service ; nous créditons ou remboursons alors la partie concernée. Les frais facturés par des tiers, comme les sociétés de livraison, Meta pour les messages WhatsApp ou les prestataires de paiement, ne sont pas remboursables par nous.',
         ],
+        links: [{ label: 'Politique de remboursement et d’annulation BelloCommerce', href: 'https://bellocommerce.com/fr/legal/refund/' }],
       },
       {
         heading: 'Demander un remboursement ou annuler',
@@ -745,9 +747,10 @@ export const refund: Record<Lang, LegalDoc> = {
       {
         heading: 'BelloCommerce ومنصة BelloCloud',
         body: [
-          'تعمل متاجر BelloCommerce الإلكترونية باشتراكات BelloCloud. يمكنك إلغاء الاشتراك في أي وقت من لوحة التحكم؛ ويبقى نشطًا حتى نهاية الفترة المدفوعة ولا يتجدد.',
-          'لا تُسترد مدفوعات فترة فوترة بدأت بالفعل، إلا إذا اقتضى القانون ذلك أو إذا لم نقدّم الخدمة.',
+          'تعمل متاجر BelloCommerce الإلكترونية باشتراكات BelloCloud. يمكنك إلغاء الاشتراك في أي وقت من لوحة التحكم: لن تُحاسَب مجددًا، ويبقى الاشتراك نشطًا حتى نهاية الفترة المدفوعة.',
+          'تتمتع الدفعة الأولى من أي اشتراك جديد بضمان استرداد المال خلال 14 يومًا: اطلب ذلك خلال 14 يومًا وسنردها كاملة دون الحاجة إلى ذكر السبب. لا تُسترد التجديدات، إلا إذا اقتضى القانون ذلك أو إذا لم نقدّم الخدمة، وعندها نمنحك رصيدًا أو نرد الجزء المتأثر. ولا نرد الرسوم التي تفرضها أطراف ثالثة، مثل شركات الشحن أو Meta لرسائل واتساب أو مزوّدي الدفع.',
         ],
+        links: [{ label: 'سياسة الاسترداد والإلغاء لـ BelloCommerce', href: 'https://bellocommerce.com/ar/legal/refund/' }],
       },
       {
         heading: 'كيفية طلب الاسترداد أو الإلغاء',
