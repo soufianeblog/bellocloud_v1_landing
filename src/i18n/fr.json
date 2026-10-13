@@ -10,7 +10,7 @@
   "about.title": "Construire l'infrastructure du commerce moderne",
   "about.p1": "Notre mission est de rendre les logiciels de commerce puissants accessibles à chaque commerçant : gérés, sécurisés et toujours en ligne.",
   "about.p2": "BelloCloud héberge des applications commerce sur une infrastructure gérée par abonnement, pour déployer en quelques secondes et se concentrer sur la vente, pas sur les serveurs.",
-  "about.p3": "BelloCloud LLC est la société derrière BelloCommerce, BelloPOS et BelloSend.",
+  "about.p3": "BelloCloud LLC est la société derrière BelloCommerce et BelloSend, et détient et exploite BelloPOS conjointement avec son partenaire officiel Rankaya Media LLC.",
   "about.back": "Retour à l'accueil",
   "hero.title": "L'Infrastructure du Commerce",
   "hero.subtitle": "Déployez vos applications commerce en quelques secondes. Choisissez une application et un forfait, BelloCloud s'occupe du reste : géré, sécurisé et toujours en ligne.",
@@ -75,5 +75,7 @@
   "company.registered": "Société à responsabilité limitée enregistrée au Nouveau-Mexique, États-Unis (Entity ID 0008115796).",
   "company.address": "Adresse du siège",
   "company.phone": "Téléphone et WhatsApp",
-  "company.email": "E-mail"
+  "company.email": "E-mail",
+  "footer.partners": "Partenaires officiels",
+  "footer.partnerRole": "copropriétaire de BelloPOS et vendeur officiel pour les paiements BelloPOS"
 }
