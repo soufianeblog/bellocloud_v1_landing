@@ -18,9 +18,9 @@ export interface LegalDoc {
 
 /** Shared, localized chrome around every legal document. */
 export const legalMeta: Record<Lang, { updatedLabel: string; updatedDate: string; back: string }> = {
-  en: { updatedLabel: 'Last updated', updatedDate: 'October 13, 2026', back: 'Back to home' },
-  fr: { updatedLabel: 'Dernière mise à jour', updatedDate: '13 octobre 2026', back: "Retour à l'accueil" },
-  ar: { updatedLabel: 'آخر تحديث', updatedDate: '13 أكتوبر 2026', back: 'العودة إلى الرئيسية' },
+  en: { updatedLabel: 'Last updated', updatedDate: 'November 6, 2026', back: 'Back to home' },
+  fr: { updatedLabel: 'Dernière mise à jour', updatedDate: '6 novembre 2026', back: "Retour à l'accueil" },
+  ar: { updatedLabel: 'آخر تحديث', updatedDate: '6 نوفمبر 2026', back: 'العودة إلى الرئيسية' },
 };
 
 /* ------------------------------------------------------------------ */
@@ -38,7 +38,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         bullets: [
           'Account data: your name, email address, and password.',
           'Organization data: company details, team members you invite, and their roles and permissions.',
-          'Billing data, handled by our payment processors such as PayPal: we do not store full payment credentials.',
+          'Billing data, handled by our payment processors (card payment processors and PayPal): we do not store full payment credentials such as card numbers.',
           'Data processed by the apps you deploy on BelloCloud, which remains under your control.',
           'Usage and device data such as IP address, browser type, pages viewed, and interactions.',
           'Locally stored preferences such as theme, language, and cookie choices (see our Cookie Policy).',
@@ -117,7 +117,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         bullets: [
           'Données de compte : nom, adresse e-mail et mot de passe.',
           "Données d'organisation : informations de l'entreprise, membres invités, rôles et permissions.",
-          'Données de facturation, traitées par nos prestataires de paiement comme PayPal : nous ne stockons pas vos identifiants de paiement complets.',
+          'Données de facturation, traitées par nos prestataires de paiement (paiement par carte et PayPal) : nous ne stockons pas vos identifiants de paiement complets, comme les numéros de carte.',
           'Les données traitées par les applications que vous déployez sur BelloCloud restent sous votre contrôle.',
           "Données d'utilisation et d'appareil : adresse IP, type de navigateur, pages consultées et interactions.",
           'Préférences stockées localement : thème, langue et choix de cookies (voir notre Politique de cookies).',
@@ -196,7 +196,7 @@ export const privacy: Record<Lang, LegalDoc> = {
         bullets: [
           'بيانات الحساب: الاسم وعنوان البريد الإلكتروني وكلمة المرور.',
           'بيانات المؤسسة: تفاصيل الشركة، وأعضاء الفريق الذين تدعوهم، وأدوارهم وصلاحياتهم.',
-          'بيانات الفوترة تعالَج عبر مزوّدي الدفع مثل PayPal: لا نخزّن بيانات الدفع الكاملة.',
+          'بيانات الفوترة تعالَج عبر مزوّدي الدفع لدينا (الدفع بالبطاقة وPayPal): لا نخزّن بيانات الدفع الكاملة مثل أرقام البطاقات.',
           'البيانات التي تعالجها التطبيقات التي تنشرها على BelloCloud تبقى تحت سيطرتك.',
           'بيانات الاستخدام والجهاز مثل عنوان IP ونوع المتصفح والصفحات المعروضة والتفاعلات.',
           'التفضيلات المخزّنة محليًا مثل السمة واللغة وخيارات ملفات تعريف الارتباط (انظر سياسة الكوكيز).',
@@ -294,7 +294,7 @@ export const terms: Record<Lang, LegalDoc> = {
         heading: 'Subscriptions, Payments & Balance',
         bullets: [
           'Apps are offered on subscription plans billed as described at checkout.',
-          'Payments are processed by PayPal or other listed processors; you may also top up an account balance.',
+          'Payments are processed by our payment processors: you can pay by card (Visa, Mastercard, American Express) or PayPal, and you may also top up an account balance.',
           'BelloCommerce subscriptions are paid in advance for each billing period and do not renew automatically: nothing is charged without your action. You renew by paying for the next period; if you do not pay, the subscription simply ends at the end of the period already paid. You can cancel at any time by email to bellocommerce@bellocloud.com.',
           'Refunds and cancellations follow our Refund & Cancellation Policy: BelloPOS licences and the first payment of a new BelloSend or BelloCommerce subscription carry a 14-day money-back guarantee; renewals and other payments are non-refundable, except where required by law or where we failed to deliver the service.',
           'We may change prices with prior notice; changes apply from the next billing cycle.',
@@ -367,7 +367,7 @@ export const terms: Record<Lang, LegalDoc> = {
         heading: 'Abonnements, paiements & solde',
         bullets: [
           'Les applications sont proposées par abonnement, facturé comme indiqué lors de la commande.',
-          'Les paiements sont traités par PayPal ou d’autres prestataires listés ; vous pouvez aussi recharger un solde de compte.',
+          'Les paiements sont traités par nos prestataires de paiement : vous pouvez payer par carte (Visa, Mastercard, American Express) ou par PayPal, et aussi recharger un solde de compte.',
           'Les abonnements BelloCommerce sont payés d’avance pour chaque période de facturation et ne se renouvellent pas automatiquement : rien n’est prélevé sans votre action. Vous renouvelez en payant la période suivante ; si vous ne payez pas, l’abonnement prend simplement fin à l’issue de la période déjà payée. Vous pouvez annuler à tout moment par e-mail à bellocommerce@bellocloud.com.',
           'Les remboursements et annulations suivent notre Politique de remboursement et d’annulation : les licences BelloPOS et le premier paiement d’un nouvel abonnement BelloSend ou BelloCommerce bénéficient d’une garantie satisfait ou remboursé de 14 jours ; les renouvellements et autres paiements ne sont pas remboursables, sauf obligation légale ou si nous n’avons pas fourni le service.',
           'Nous pouvons modifier les prix avec préavis ; les changements s’appliquent au cycle de facturation suivant.',
@@ -440,7 +440,7 @@ export const terms: Record<Lang, LegalDoc> = {
         heading: 'الاشتراكات والمدفوعات والرصيد',
         bullets: [
           'تُقدَّم التطبيقات بخطط اشتراك تُفوتر كما هو موضح عند الشراء.',
-          'تُعالَج المدفوعات عبر PayPal أو مزوّدين آخرين معلنين؛ ويمكنك أيضًا شحن رصيد حسابك.',
+          'تُعالَج المدفوعات عبر مزوّدي الدفع لدينا: يمكنك الدفع بالبطاقة (Visa وMastercard وAmerican Express) أو عبر PayPal، ويمكنك أيضًا شحن رصيد حسابك.',
           'تُدفع اشتراكات BelloCommerce مسبقًا عن كل فترة فوترة ولا تتجدد تلقائيًا: لا يُقتطع أي مبلغ دون إجراء منك. تجدّد اشتراكك بدفع الفترة التالية، وإذا لم تدفع ينتهي الاشتراك ببساطة في نهاية الفترة المدفوعة. ويمكنك الإلغاء في أي وقت عبر البريد الإلكتروني إلى bellocommerce@bellocloud.com.',
           'تخضع المبالغ المستردة والإلغاءات لسياسة الاسترداد والإلغاء لدينا: تتمتع تراخيص BelloPOS والدفعة الأولى من أي اشتراك جديد في BelloSend أو BelloCommerce بضمان استرداد المال خلال 14 يومًا؛ أما التجديدات والمدفوعات الأخرى فلا تُسترد، إلا إذا اقتضى القانون ذلك أو إذا لم نقدّم الخدمة.',
           'قد نغيّر الأسعار بإشعار مسبق؛ وتسري التغييرات اعتبارًا من دورة الفوترة التالية.',

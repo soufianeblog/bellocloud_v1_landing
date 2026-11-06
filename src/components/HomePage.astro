@@ -6,6 +6,7 @@ import Header from './Header.astro';
 import Hero from './Hero.astro';
 import Features from './Features.astro';
 import HowItWorks from './HowItWorks.astro';
+import ProductsPricing from './ProductsPricing.astro';
 import Footer from './Footer.astro';
 import { useTranslations, type Lang } from '../lib/i18n';
 
@@ -20,6 +21,7 @@ const description = t('meta.description');
   <Header lang={lang} />
   <main transition:animate="fade">
     <Hero lang={lang} />
+    <ProductsPricing lang={lang} />
     <Features lang={lang} />
     <HowItWorks lang={lang} />
   </main>

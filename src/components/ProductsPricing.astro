@@ -1,0 +1,159 @@
+---
+// Products & pricing: what BelloCloud LLC sells (BelloPOS, BelloSend), every
+// public price with its currency and billing model, how to pay, and the
+// policies that apply. Used on the home page (#pricing) and on /pricing/.
+import { basePath, useTranslations, type Lang } from '../lib/i18n';
+import { COMPANY } from '../lib/company';
+import { bellopos, bellosend, formatPrice } from '../lib/pricing';
+
+interface Props {
+  lang: Lang;
+  /** h1 on the dedicated /pricing/ page, h2 inside the home page. */
+  as?: 'h1' | 'h2';
+}
+
+const { lang, as: Heading = 'h2' } = Astro.props;
+const t = useTranslations(lang);
+
+const usd = (n: number) => formatPrice(n, bellopos.currency, lang);
+const eur = (n: number) => formatPrice(n, bellosend.currency, lang);
+
+const u = bellosend.units;
+const sendCustom = t('pricing.send.custom')
+  .replace('{channel}', eur(u.channel))
+  .replace('{user}', eur(u.extraUser))
+  .replace('{automation}', `+${eur(u.automation)}`)
+  .replace('{history}', `+${eur(u.unlimitedHistory)}`);
+
+const policies = [
+  { label: t('footer.refund'), href: `${basePath}/${lang}/legal/refund/` },
+  { label: t('footer.terms'), href: `${basePath}/${lang}/legal/terms/` },
+  { label: t('footer.privacy'), href: `${basePath}/${lang}/legal/privacy/` },
+];
+
+const card = 'reveal flex min-w-0 flex-col rounded-2xl border border-black/10 bg-white p-6 shadow-sm sm:p-8 dark:border-white/10 dark:bg-night-card';
+const chip = 'inline-flex rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-accent/15 dark:text-accent';
+const cell = 'py-3 pe-3 align-top';
+const priceCell = `${cell} sm:whitespace-nowrap`;
+const price = 'font-stat font-bold tabular-nums text-ink dark:text-white';
+const unit = 'text-xs font-normal text-ink/55 dark:text-white/55';
+---
+
+<section id="pricing" class="scroll-mt-20 bg-cream/40 py-24 dark:bg-night-soft/40">
+  <div class="mx-auto max-w-6xl px-5 sm:px-6">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="text-sm font-semibold uppercase tracking-wider text-accent">{t('pricing.eyebrow')}</span>
+      <Heading class="font-heading mt-3 text-[clamp(1.25rem,6vw,1.875rem)] font-bold sm:text-4xl">{t('pricing.title')}</Heading>
+      <p class="mt-4 text-lg text-ink/60 dark:text-white/60">{t('pricing.subtitle')}</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-2">
+      <!-- BelloPOS: USD, monthly / yearly / one-time lifetime licence -->
+      <article class={card}>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h3 class="font-heading text-2xl font-bold">BelloPOS</h3>
+          <span class={chip}>{t('pricing.pos.currency')}</span>
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/65 dark:text-white/65">{t('pricing.pos.tagline')}</p>
+
+        <div class="mt-5 overflow-x-auto">
+          <table class="w-full text-start text-sm">
+            <thead>
+              <tr class="border-b border-black/10 text-xs uppercase tracking-wide text-ink/55 dark:border-white/10 dark:text-white/55">
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.plan')}</th>
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.monthly')}</th>
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.yearly')}</th>
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.lifetime')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bellopos.plans.map((p) => (
+                <tr class="border-b border-black/5 last:border-0 dark:border-white/10">
+                  <th scope="row" class={`${cell} text-start font-normal`}>
+                    <span class="block font-semibold text-ink dark:text-white" dir="ltr">{p.name}</span>
+                    <span class="block text-xs text-ink/55 dark:text-white/55">{t(`pricing.pos.${p.key}`)}</span>
+                  </th>
+                  {p.monthly === null ? (
+                    <td colspan="3" class={cell}><span class={price}>{t('pricing.free')}</span></td>
+                  ) : (
+                    <>
+                      <td class={priceCell}><span class={price} dir="ltr">{usd(p.monthly)}</span> <span class={unit}>{t('pricing.perMonth')}</span></td>
+                      <td class={priceCell}><span class={price} dir="ltr">{usd(p.yearly!)}</span> <span class={unit}>{t('pricing.perYear')}</span></td>
+                      <td class={priceCell}><span class={price} dir="ltr">{usd(p.lifetime!)}</span> <span class={unit}>{t('pricing.oneTime')}</span></td>
+                    </>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-4 text-sm leading-relaxed text-ink/65 dark:text-white/65">{t('pricing.pos.billing')}</p>
+        <a href={bellopos.pricingUrl(lang)} target="_blank" rel="noopener" class="mt-auto inline-flex w-fit items-center gap-1.5 pt-5 text-sm font-semibold text-accent underline-offset-2 hover:underline">
+          {t('pricing.pos.cta')} <span dir="ltr" class="font-normal text-ink/50 dark:text-white/50">(bellopos.app)</span>
+        </a>
+      </article>
+
+      <!-- BelloSend: EUR subscription, monthly or yearly -->
+      <article class={card} style="--reveal-delay:90ms">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h3 class="font-heading text-2xl font-bold">BelloSend</h3>
+          <span class={chip}>{t('pricing.send.currency')}</span>
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/65 dark:text-white/65">{t('pricing.send.tagline')}</p>
+
+        <div class="mt-5 overflow-x-auto">
+          <table class="w-full text-start text-sm">
+            <thead>
+              <tr class="border-b border-black/10 text-xs uppercase tracking-wide text-ink/55 dark:border-white/10 dark:text-white/55">
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.plan')}</th>
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.monthly')}</th>
+                <th scope="col" class={`${cell} text-start font-semibold`}>{t('pricing.col.yearly')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bellosend.plans.map((p) => (
+                <tr class="border-b border-black/5 last:border-0 dark:border-white/10">
+                  <th scope="row" class={`${cell} text-start font-normal`}>
+                    <span class="block font-semibold text-ink dark:text-white" dir="ltr">{p.name}</span>
+                    <span class="block text-xs text-ink/55 dark:text-white/55">{t(`pricing.send.${p.key}`)}</span>
+                  </th>
+                  <td class={priceCell}><span class={price} dir="ltr">{eur(p.monthly)}</span> <span class={unit}>{t('pricing.perMonth')}</span></td>
+                  <td class={priceCell}><span class={price} dir="ltr">{eur(p.yearly)}</span> <span class={unit}>{t('pricing.perYear')}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-4 text-sm leading-relaxed text-ink/65 dark:text-white/65">{sendCustom}</p>
+        <p class="mt-3 text-sm leading-relaxed text-ink/65 dark:text-white/65">{t('pricing.send.billing')}</p>
+        <a href={bellosend.pricingUrl(lang)} target="_blank" rel="noopener" class="mt-auto inline-flex w-fit items-center gap-1.5 pt-5 text-sm font-semibold text-accent underline-offset-2 hover:underline">
+          {t('pricing.send.cta')} <span dir="ltr" class="font-normal text-ink/50 dark:text-white/50">(bellosend.net)</span>
+        </a>
+      </article>
+    </div>
+
+    <!-- How to pay, which policies apply, and who to ask -->
+    <div class="reveal mt-6 rounded-2xl border border-black/10 bg-white p-6 text-sm leading-relaxed text-ink/70 shadow-sm sm:p-8 dark:border-white/10 dark:bg-night-card dark:text-white/70" style="--reveal-delay:180ms">
+      <p class="flex items-start gap-2.5 font-semibold text-ink dark:text-white">
+        <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        {t('pricing.cards')}
+      </p>
+      <p class="mt-3">
+        {t('pricing.policies')}{' '}
+        {policies.map((l, i) => (
+          <>
+            <a href={l.href} class="font-semibold text-accent underline-offset-2 hover:underline">{l.label}</a>{i < policies.length - 1 ? ' · ' : '.'}
+          </>
+        ))}
+      </p>
+      <p class="mt-3">
+        {t('pricing.support')}{' '}
+        <a href={`mailto:${COMPANY.email}`} dir="ltr" class="font-semibold text-accent underline-offset-2 hover:underline">{COMPANY.email}</a>
+        <span aria-hidden="true"> · </span>
+        <a href={`tel:${COMPANY.phoneE164}`} dir="ltr" class="font-semibold text-accent underline-offset-2 hover:underline">{COMPANY.phoneDisplay}</a>
+      </p>
+    </div>
+  </div>
+</section>

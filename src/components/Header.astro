@@ -14,19 +14,21 @@ const strippedPath = Astro.url.pathname.replace(/\/$/, '');
 const isHome = strippedPath === `${basePath}/${lang}` || strippedPath === basePath;
 const Logo = isHome ? 'div' : 'a';
 
-// Products menu: external links into the BelloCommerce site, language-aware
-// (bellocommerce.com serves the same en/fr/ar languages).
+// Products menu: external, language-aware links to each product's own site
+// (they serve the same en/fr/ar languages). BelloPOS and BelloSend first.
 const productLinks = [
+  { href: `https://bellopos.app/${lang}/`, label: 'BelloPOS' },
+  { href: `https://bellosend.net/${lang}`, label: 'BelloSend' },
   { href: `https://bellocommerce.com/${lang}/`, label: 'BelloCommerce' },
   { href: `https://bellocommerce.com/${lang}/online-store/`, label: t('nav.products.store') },
   { href: `https://bellocommerce.com/${lang}/bellopos/`, label: t('nav.products.pos') },
-  { href: 'https://bellosend.net/', label: 'BelloSend' },
 ];
 
 // Absolute (language-prefixed) hrefs so links work from any page, not just /.
 // The blog lives on its own subdomain, so it's an absolute URL rather than a
 // language-prefixed route.
 const navLinks = [
+  { href: `${basePath}/${lang}/pricing/`, label: t('nav.pricing'), external: false },
   { href: `${basePath}/${lang}/about/`, label: t('nav.about'), external: false },
   { href: 'https://blog.bellocommerce.com', label: t('nav.blog'), external: true },
   { href: `${basePath}/${lang}/contact/`, label: t('nav.contact'), external: false },

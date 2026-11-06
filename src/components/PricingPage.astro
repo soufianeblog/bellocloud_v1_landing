@@ -1,0 +1,21 @@
+---
+// The full Products & Pricing page for one language. Shared by /[lang]/pricing
+// and the language-less /pricing (which serves the default language directly).
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import ProductsPricing from './ProductsPricing.astro';
+import { useTranslations, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} title={t('pricing.meta.title')} description={t('pricing.meta.description')}>
+  <Header lang={lang} />
+  <main transition:animate="fade">
+    <ProductsPricing lang={lang} as="h1" />
+  </main>
+  <Footer lang={lang} />
+</Base>
