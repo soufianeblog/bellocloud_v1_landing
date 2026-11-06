@@ -30,7 +30,7 @@ export const privacy: Record<Lang, LegalDoc> = {
   en: {
     title: 'Privacy Policy',
     intro:
-      'This Privacy Policy explains how BelloCloud LLC ("BelloCloud", "we", "us"), a limited liability company registered in New Mexico, United States, with its address at 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, United States, collects, uses, shares, and protects your personal information when you use the BelloCloud platform (the "Service"). BelloPOS (bellopos.app) is owned and operated jointly by BelloCloud LLC and Rankaya Media LLC (same address, contact@rankaya.com, +1 (612) 930-1231), who are joint controllers of the personal data processed for BelloPOS; its own Privacy Policy on bellopos.app gives the details. By using the Service you agree to the practices described below.',
+      'This Privacy Policy explains how BelloCloud LLC ("BelloCloud", "we", "us"), a limited liability company registered in New Mexico, United States, with its address at 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, United States, collects, uses, shares, and protects your personal information when you use the BelloCloud platform (the "Service"). BelloPOS (bellopos.app) is owned and operated by BelloCloud LLC, which is the sole controller of the personal data processed for BelloPOS; its own Privacy Policy on bellopos.app gives the details. By using the Service you agree to the practices described below.',
     sections: [
       {
         heading: 'Information We Collect',
@@ -109,7 +109,7 @@ export const privacy: Record<Lang, LegalDoc> = {
   fr: {
     title: 'Politique de confidentialité',
     intro:
-      'Cette Politique de confidentialité explique comment BelloCloud LLC (« BelloCloud », « nous »), société à responsabilité limitée enregistrée au Nouveau-Mexique (États-Unis), dont l’adresse est 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, United States, collecte, utilise, partage et protège vos informations personnelles lorsque vous utilisez la plateforme BelloCloud (le « Service »). BelloPOS (bellopos.app) est détenu et exploité conjointement par BelloCloud LLC et Rankaya Media LLC (même adresse, contact@rankaya.com, +1 (612) 930-1231), responsables conjoints des données personnelles traitées pour BelloPOS ; sa propre Politique de confidentialité sur bellopos.app en donne le détail. En utilisant le Service, vous acceptez les pratiques décrites ci-dessous.',
+      'Cette Politique de confidentialité explique comment BelloCloud LLC (« BelloCloud », « nous »), société à responsabilité limitée enregistrée au Nouveau-Mexique (États-Unis), dont l’adresse est 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, United States, collecte, utilise, partage et protège vos informations personnelles lorsque vous utilisez la plateforme BelloCloud (le « Service »). BelloPOS (bellopos.app) est détenu et exploité par BelloCloud LLC, seul responsable du traitement des données personnelles traitées pour BelloPOS ; sa propre Politique de confidentialité sur bellopos.app en donne le détail. En utilisant le Service, vous acceptez les pratiques décrites ci-dessous.',
     sections: [
       {
         heading: 'Informations que nous collectons',
@@ -188,7 +188,7 @@ export const privacy: Record<Lang, LegalDoc> = {
   ar: {
     title: 'سياسة الخصوصية',
     intro:
-      'توضح سياسة الخصوصية هذه كيف تقوم شركة BelloCloud LLC («BelloCloud»، «نحن»)، وهي شركة ذات مسؤولية محدودة مسجّلة في ولاية نيو مكسيكو بالولايات المتحدة وعنوانها 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, United States، بجمع معلوماتك الشخصية واستخدامها ومشاركتها وحمايتها عند استخدامك منصة BelloCloud («الخدمة»). ويملك BelloPOS (bellopos.app) ويشغّله بصفة مشتركة كلٌّ من BelloCloud LLC و Rankaya Media LLC (العنوان نفسه، contact@rankaya.com، ‎+1 (612) 930-1231)، وهما مراقبان مشتركان للبيانات الشخصية التي تُعالَج لـ BelloPOS، وتتضمن سياسة الخصوصية الخاصة به على bellopos.app التفاصيل. باستخدامك الخدمة فإنك توافق على الممارسات الموضّحة أدناه.',
+      'توضح سياسة الخصوصية هذه كيف تقوم شركة BelloCloud LLC («BelloCloud»، «نحن»)، وهي شركة ذات مسؤولية محدودة مسجّلة في ولاية نيو مكسيكو بالولايات المتحدة وعنوانها 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, United States، بجمع معلوماتك الشخصية واستخدامها ومشاركتها وحمايتها عند استخدامك منصة BelloCloud («الخدمة»). وتملك BelloCloud LLC منتج BelloPOS (bellopos.app) وتشغّله، وهي المراقب الوحيد للبيانات الشخصية التي تُعالَج لـ BelloPOS، وتتضمن سياسة الخصوصية الخاصة به على bellopos.app التفاصيل. باستخدامك الخدمة فإنك توافق على الممارسات الموضّحة أدناه.',
     sections: [
       {
         heading: 'المعلومات التي نجمعها',
@@ -278,7 +278,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         heading: 'The Service',
         body: [
-          'BelloCloud lets you deploy, run, and manage subscription-based commerce applications such as BelloCommerce on managed infrastructure. We handle hosting, updates, and monitoring so your apps stay available. Features may evolve over time. BelloCloud LLC also publishes BelloSend (bellosend.net), and owns and operates BelloPOS (bellopos.app) jointly with Rankaya Media LLC, which is the merchant of record for BelloPOS payments; when you buy those products, their own terms and policies apply alongside these Terms.',
+          'BelloCloud lets you deploy, run, and manage subscription-based commerce applications such as BelloCommerce on managed infrastructure. We handle hosting, updates, and monitoring so your apps stay available. Features may evolve over time. BelloCloud LLC also publishes BelloSend (bellosend.net), and is the sole owner, operator and seller of BelloPOS (bellopos.app); when you buy those products, their own terms and policies apply alongside these Terms.',
         ],
       },
       {
@@ -294,7 +294,7 @@ export const terms: Record<Lang, LegalDoc> = {
         heading: 'Subscriptions, Payments & Balance',
         bullets: [
           'Apps are offered on subscription plans billed as described at checkout.',
-          'Payments are processed by our payment processors: you can pay by card (Visa, Mastercard, American Express) or PayPal, and you may also top up an account balance.',
+          "Order by contacting us on WhatsApp (+1 505 528 3844) or by email (contact@bellocloud.com). We'll send you a secure payment link or payment instructions. You may also top up an account balance.",
           'BelloCommerce subscriptions are paid in advance for each billing period and do not renew automatically: nothing is charged without your action. You renew by paying for the next period; if you do not pay, the subscription simply ends at the end of the period already paid. You can cancel at any time by email to bellocommerce@bellocloud.com.',
           'Refunds and cancellations follow our Refund & Cancellation Policy: BelloPOS licences and the first payment of a new BelloSend or BelloCommerce subscription carry a 14-day money-back guarantee; renewals and other payments are non-refundable, except where required by law or where we failed to deliver the service.',
           'We may change prices with prior notice; changes apply from the next billing cycle.',
@@ -351,7 +351,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         heading: 'Le Service',
         body: [
-          "BelloCloud vous permet de déployer, exécuter et gérer des applications commerce par abonnement, comme BelloCommerce, sur une infrastructure gérée. Nous assurons l'hébergement, les mises à jour et la supervision pour que vos applications restent disponibles. Les fonctionnalités peuvent évoluer. BelloCloud LLC édite aussi BelloSend (bellosend.net), et détient et exploite BelloPOS (bellopos.app) conjointement avec Rankaya Media LLC, vendeur officiel (merchant of record) pour les paiements BelloPOS ; lorsque vous achetez ces produits, leurs propres conditions et politiques s’appliquent en complément des présentes Conditions.",
+          "BelloCloud vous permet de déployer, exécuter et gérer des applications commerce par abonnement, comme BelloCommerce, sur une infrastructure gérée. Nous assurons l'hébergement, les mises à jour et la supervision pour que vos applications restent disponibles. Les fonctionnalités peuvent évoluer. BelloCloud LLC édite aussi BelloSend (bellosend.net), et est l’unique propriétaire, exploitante et vendeuse de BelloPOS (bellopos.app) ; lorsque vous achetez ces produits, leurs propres conditions et politiques s’appliquent en complément des présentes Conditions.",
         ],
       },
       {
@@ -367,7 +367,7 @@ export const terms: Record<Lang, LegalDoc> = {
         heading: 'Abonnements, paiements & solde',
         bullets: [
           'Les applications sont proposées par abonnement, facturé comme indiqué lors de la commande.',
-          'Les paiements sont traités par nos prestataires de paiement : vous pouvez payer par carte (Visa, Mastercard, American Express) ou par PayPal, et aussi recharger un solde de compte.',
+          'Commandez en nous contactant sur WhatsApp (+1 505 528 3844) ou par e-mail (contact@bellocloud.com). Nous vous enverrons un lien de paiement sécurisé ou les instructions de paiement. Vous pouvez aussi recharger un solde de compte.',
           'Les abonnements BelloCommerce sont payés d’avance pour chaque période de facturation et ne se renouvellent pas automatiquement : rien n’est prélevé sans votre action. Vous renouvelez en payant la période suivante ; si vous ne payez pas, l’abonnement prend simplement fin à l’issue de la période déjà payée. Vous pouvez annuler à tout moment par e-mail à bellocommerce@bellocloud.com.',
           'Les remboursements et annulations suivent notre Politique de remboursement et d’annulation : les licences BelloPOS et le premier paiement d’un nouvel abonnement BelloSend ou BelloCommerce bénéficient d’une garantie satisfait ou remboursé de 14 jours ; les renouvellements et autres paiements ne sont pas remboursables, sauf obligation légale ou si nous n’avons pas fourni le service.',
           'Nous pouvons modifier les prix avec préavis ; les changements s’appliquent au cycle de facturation suivant.',
@@ -424,7 +424,7 @@ export const terms: Record<Lang, LegalDoc> = {
       {
         heading: 'الخدمة',
         body: [
-          'تتيح لك BelloCloud نشر تطبيقات التجارة القائمة على الاشتراك مثل BelloCommerce وتشغيلها وإدارتها على بنية تحتية مُدارة. نتولى الاستضافة والتحديثات والمراقبة لتبقى تطبيقاتك متاحة. وقد تتطور الميزات مع الوقت. كما تنشر BelloCloud LLC منتج BelloSend (bellosend.net)، وتملك BelloPOS (bellopos.app) وتشغّله بصفة مشتركة مع Rankaya Media LLC، وهي البائع الرسمي لمدفوعات BelloPOS؛ وعند شرائك أحد هذه المنتجات تسري شروطه وسياساته الخاصة إلى جانب هذه الشروط.',
+          'تتيح لك BelloCloud نشر تطبيقات التجارة القائمة على الاشتراك مثل BelloCommerce وتشغيلها وإدارتها على بنية تحتية مُدارة. نتولى الاستضافة والتحديثات والمراقبة لتبقى تطبيقاتك متاحة. وقد تتطور الميزات مع الوقت. كما تنشر BelloCloud LLC منتج BelloSend (bellosend.net)، وهي المالكة والمشغّلة والبائعة الوحيدة لـ BelloPOS (bellopos.app)؛ وعند شرائك أحد هذه المنتجات تسري شروطه وسياساته الخاصة إلى جانب هذه الشروط.',
         ],
       },
       {
@@ -440,7 +440,7 @@ export const terms: Record<Lang, LegalDoc> = {
         heading: 'الاشتراكات والمدفوعات والرصيد',
         bullets: [
           'تُقدَّم التطبيقات بخطط اشتراك تُفوتر كما هو موضح عند الشراء.',
-          'تُعالَج المدفوعات عبر مزوّدي الدفع لدينا: يمكنك الدفع بالبطاقة (Visa وMastercard وAmerican Express) أو عبر PayPal، ويمكنك أيضًا شحن رصيد حسابك.',
+          'اطلب بالتواصل معنا عبر واتساب (‎+1 505 528 3844) أو عبر البريد الإلكتروني (contact@bellocloud.com). وسنرسل إليك رابط دفع آمنًا أو تعليمات الدفع. ويمكنك أيضًا شحن رصيد حسابك.',
           'تُدفع اشتراكات BelloCommerce مسبقًا عن كل فترة فوترة ولا تتجدد تلقائيًا: لا يُقتطع أي مبلغ دون إجراء منك. تجدّد اشتراكك بدفع الفترة التالية، وإذا لم تدفع ينتهي الاشتراك ببساطة في نهاية الفترة المدفوعة. ويمكنك الإلغاء في أي وقت عبر البريد الإلكتروني إلى bellocommerce@bellocloud.com.',
           'تخضع المبالغ المستردة والإلغاءات لسياسة الاسترداد والإلغاء لدينا: تتمتع تراخيص BelloPOS والدفعة الأولى من أي اشتراك جديد في BelloSend أو BelloCommerce بضمان استرداد المال خلال 14 يومًا؛ أما التجديدات والمدفوعات الأخرى فلا تُسترد، إلا إذا اقتضى القانون ذلك أو إذا لم نقدّم الخدمة.',
           'قد نغيّر الأسعار بإشعار مسبق؛ وتسري التغييرات اعتبارًا من دورة الفوترة التالية.',
@@ -624,12 +624,12 @@ export const refund: Record<Lang, LegalDoc> = {
   en: {
     title: 'Refund & Cancellation Policy',
     intro:
-      'BelloCloud LLC sells BelloSend and BelloCommerce, and BelloPOS together with Rankaya Media LLC, its joint owner. This page summarizes how refunds and cancellations work for each of them. Where a product publishes its own refund policy, that policy gives the full details and prevails for that product.',
+      'BelloCloud LLC is the sole owner, operator and seller of BelloPOS, BelloSend and BelloCommerce. This page summarizes how refunds and cancellations work for each of them. Where a product publishes its own refund policy, that policy gives the full details and prevails for that product.',
     sections: [
       {
         heading: 'BelloPOS (bellopos.app)',
         body: [
-          'BelloPOS is offline point-of-sale software, owned and operated jointly by BelloCloud LLC and Rankaya Media LLC. It is sold as a one-time licence or as prepaid monthly or yearly keys: there is no subscription and nothing renews or is charged automatically. Payments are processed by Rankaya Media LLC (merchant of record); you can write to either company about any purchase.',
+          'BelloPOS is offline point-of-sale software, owned and operated by BelloCloud LLC. It is sold as a one-time licence or as prepaid monthly or yearly keys: there is no subscription and nothing renews or is charged automatically. BelloCloud LLC is the seller of every BelloPOS purchase; write to contact@bellocloud.com about any purchase.',
           'Every licence and every key, first purchase or renewal, carries a 14-day money-back guarantee. If BelloPOS does not suit your business, ask for a refund within 14 days of that purchase and we refund the full price to the original payment method.',
         ],
         links: [{ label: 'BelloPOS Refund & Delivery Policy', href: 'https://bellopos.app/en/legal/refund/' }],
@@ -675,12 +675,12 @@ export const refund: Record<Lang, LegalDoc> = {
   fr: {
     title: 'Politique de remboursement et d’annulation',
     intro:
-      'BelloCloud LLC commercialise BelloSend et BelloCommerce, ainsi que BelloPOS avec Rankaya Media LLC, son copropriétaire. Cette page résume le fonctionnement des remboursements et des annulations pour chacun d’eux. Lorsqu’un produit publie sa propre politique de remboursement, celle-ci donne tous les détails et prévaut pour ce produit.',
+      'BelloCloud LLC est l’unique propriétaire, exploitante et vendeuse de BelloPOS, BelloSend et BelloCommerce. Cette page résume le fonctionnement des remboursements et des annulations pour chacun d’eux. Lorsqu’un produit publie sa propre politique de remboursement, celle-ci donne tous les détails et prévaut pour ce produit.',
     sections: [
       {
         heading: 'BelloPOS (bellopos.app)',
         body: [
-          'BelloPOS est un logiciel de caisse hors ligne, détenu et exploité conjointement par BelloCloud LLC et Rankaya Media LLC. Il est vendu en licence unique ou en clés prépayées mensuelles ou annuelles : sans abonnement, rien n’est renouvelé ni prélevé automatiquement. Les paiements sont traités par Rankaya Media LLC (vendeur officiel) ; vous pouvez écrire à l’une ou l’autre société pour tout achat.',
+          'BelloPOS est un logiciel de caisse hors ligne, détenu et exploité par BelloCloud LLC. Il est vendu en licence unique ou en clés prépayées mensuelles ou annuelles : sans abonnement, rien n’est renouvelé ni prélevé automatiquement. BelloCloud LLC est le vendeur de chaque achat BelloPOS ; écrivez à contact@bellocloud.com pour tout achat.',
           'Chaque licence et chaque clé, premier achat ou renouvellement, bénéficie d’une garantie satisfait ou remboursé de 14 jours. Si BelloPOS ne convient pas à votre commerce, demandez un remboursement dans les 14 jours suivant cet achat et nous remboursons l’intégralité du prix sur le moyen de paiement d’origine.',
         ],
         links: [{ label: 'Politique de remboursement et de livraison BelloPOS', href: 'https://bellopos.app/fr/legal/refund/' }],
@@ -726,12 +726,12 @@ export const refund: Record<Lang, LegalDoc> = {
   ar: {
     title: 'سياسة الاسترداد والإلغاء',
     intro:
-      'تبيع شركة BelloCloud LLC منتجَي BelloSend وBelloCommerce، كما تبيع BelloPOS مع شريكتها في ملكيته Rankaya Media LLC. تلخص هذه الصفحة طريقة الاسترداد والإلغاء لكل منها. وحين ينشر المنتج سياسة استرداد خاصة به، فهي التي تتضمن التفاصيل الكاملة وتسري على ذلك المنتج.',
+      'شركة BelloCloud LLC هي المالكة والمشغّلة والبائعة الوحيدة لمنتجات BelloPOS وBelloSend وBelloCommerce. تلخص هذه الصفحة طريقة الاسترداد والإلغاء لكل منها. وحين ينشر المنتج سياسة استرداد خاصة به، فهي التي تتضمن التفاصيل الكاملة وتسري على ذلك المنتج.',
     sections: [
       {
         heading: 'BelloPOS (bellopos.app)',
         body: [
-          'BelloPOS برنامج نقاط بيع يعمل دون إنترنت، تملكه وتشغّله بصفة مشتركة شركتا BelloCloud LLC و Rankaya Media LLC. ويُباع بترخيص لمرة واحدة أو بمفاتيح مدفوعة مسبقًا شهرية أو سنوية: دون اشتراك، ولا يُجدَّد أو يُخصم أي مبلغ تلقائيًا. وتعالج Rankaya Media LLC المدفوعات بصفتها البائع الرسمي، ويمكنك مراسلة أيٍّ من الشركتين بشأن أي عملية شراء.',
+          'BelloPOS برنامج نقاط بيع يعمل دون إنترنت، تملكه وتشغّله شركة BelloCloud LLC. ويُباع بترخيص لمرة واحدة أو بمفاتيح مدفوعة مسبقًا شهرية أو سنوية: دون اشتراك، ولا يُجدَّد أو يُخصم أي مبلغ تلقائيًا. وBelloCloud LLC هي البائع في كل عملية شراء لـ BelloPOS، ويمكنك مراسلتها على contact@bellocloud.com بشأن أي عملية شراء.',
           'يتمتع كل ترخيص وكل مفتاح، سواء أكان شراءً أول أم تجديدًا، بضمان استرداد المال خلال 14 يومًا. إذا لم يناسب BelloPOS نشاطك، فاطلب الاسترداد خلال 14 يومًا من ذلك الشراء وسنعيد إليك كامل الثمن عبر وسيلة الدفع الأصلية.',
         ],
         links: [{ label: 'سياسة الاسترداد والتسليم لـ BelloPOS', href: 'https://bellopos.app/ar/legal/refund/' }],

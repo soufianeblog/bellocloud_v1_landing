@@ -1,7 +1,7 @@
 ---
 import { basePath, useTranslations, type Lang } from '../lib/i18n';
 import { waLink, WHATSAPP_NUMBER } from '../lib/wa';
-import { COMPANY, PARTNER, addressLines } from '../lib/company';
+import { COMPANY, addressLines } from '../lib/company';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -105,16 +105,6 @@ const columns = [
         <a href={`mailto:${COMPANY.email}`} dir="ltr" class="transition hover:text-ink dark:hover:text-white">{COMPANY.email}</a>
         <span aria-hidden="true"> · </span>
         <a href={`tel:${COMPANY.phoneE164}`} dir="ltr" class="transition hover:text-ink dark:hover:text-white">{COMPANY.phoneDisplay}</a>
-      </p>
-      <!-- Official partner: co-owner of BelloPOS and merchant of record for its payments -->
-      <p class="mt-4"><span class="font-semibold text-ink dark:text-white">{t('footer.partners')}</span></p>
-      <p class="mt-1"><span dir="ltr" class="font-semibold text-ink dark:text-white">{PARTNER.legalName}</span> · {t('footer.partnerRole')}</p>
-      <p class="mt-1">
-        <span dir="ltr">{PARTNER.street}, {PARTNER.city}, {PARTNER.region} {PARTNER.postalCode}, {PARTNER.country}</span>
-        <span aria-hidden="true"> · </span>
-        <a href={`mailto:${PARTNER.email}`} dir="ltr" class="transition hover:text-ink dark:hover:text-white">{PARTNER.email}</a>
-        <span aria-hidden="true"> · </span>
-        <a href={`tel:${PARTNER.phoneE164}`} dir="ltr" class="transition hover:text-ink dark:hover:text-white">{PARTNER.phoneDisplay}</a>
       </p>
     </div>
 
