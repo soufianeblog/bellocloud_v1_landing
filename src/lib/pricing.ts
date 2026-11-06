@@ -15,7 +15,7 @@ import type { Lang } from './i18n';
 export type Currency = 'USD' | 'EUR';
 
 export interface PosPlan {
-  key: 'lite' | 'go' | 'pro' | 'plus';
+  key: 'lite' | 'go' | 'pro';
   name: string;
   /** null = free. */
   monthly: number | null;
@@ -37,7 +37,6 @@ export const bellopos = {
     { key: 'lite', name: 'BelloPOS Lite', monthly: null, yearly: null, lifetime: null },
     { key: 'go', name: 'BelloPOS Go', monthly: 45, yearly: 447, lifetime: 771 },
     { key: 'pro', name: 'BelloPOS Pro', monthly: 78, yearly: 782, lifetime: 1441 },
-    { key: 'plus', name: 'BelloPOS Pro+', monthly: 101, yearly: 1005, lifetime: 2112 },
   ] satisfies PosPlan[],
 };
 
